@@ -1,0 +1,145 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-03-10T00:00:00Z",
+  "schema_version": 1,
+  "track": "toeic-990",
+  "profile": {
+    "target_score": 990,
+    "daily_study_minutes": 5,
+    "rc_priority_order": ["part5", "part6", "part7"],
+    "voca_review_rule": "spaced-repetition"
+  },
+  "score_band_policy": {
+    "version": "2.0",
+    "rule": "five-tier",
+    "bands": [
+      {"id": "score-000-599", "label": "~599", "min_score": 0, "max_score": 599, "order": 1},
+      {"id": "score-600-699", "label": "600-699", "min_score": 600, "max_score": 699, "order": 2},
+      {"id": "score-700-799", "label": "700-799", "min_score": 700, "max_score": 799, "order": 3},
+      {"id": "score-800-899", "label": "800-899", "min_score": 800, "max_score": 899, "order": 4},
+      {"id": "score-900-990", "label": "900-990", "min_score": 900, "max_score": 990, "order": 5}
+    ]
+  },
+  "entries": [
+    {
+      "id": "voca-000-599-d1",
+      "type": "voca",
+      "level": 1,
+      "path": "content/voca/score-000-599-day1.md",
+      "checksum_sha256": "placeholder",
+      "updated_at": "2026-03-10T00:00:00Z",
+      "score_band_id": "score-000-599",
+      "score_min": 0,
+      "score_max": 599,
+      "sequence": 1
+    },
+    {
+      "id": "voca-600-699-d1",
+      "type": "voca",
+      "level": 2,
+      "path": "content/voca/score-600-699-day1.md",
+      "checksum_sha256": "placeholder",
+      "updated_at": "2026-03-10T00:00:00Z",
+      "score_band_id": "score-600-699",
+      "score_min": 600,
+      "score_max": 699,
+      "sequence": 1
+    },
+    {
+      "id": "voca-700-799-d1",
+      "type": "voca",
+      "level": 3,
+      "path": "content/voca/score-700-799-day1.md",
+      "checksum_sha256": "placeholder",
+      "updated_at": "2026-03-10T00:00:00Z",
+      "score_band_id": "score-700-799",
+      "score_min": 700,
+      "score_max": 799,
+      "sequence": 1
+    },
+    {
+      "id": "voca-800-899-d1",
+      "type": "voca",
+      "level": 4,
+      "path": "content/voca/score-800-899-day1.md",
+      "checksum_sha256": "placeholder",
+      "updated_at": "2026-03-10T00:00:00Z",
+      "score_band_id": "score-800-899",
+      "score_min": 800,
+      "score_max": 899,
+      "sequence": 1
+    },
+    {
+      "id": "voca-900-990-d1",
+      "type": "voca",
+      "level": 5,
+      "path": "content/voca/score-900-990-day1.md",
+      "checksum_sha256": "placeholder",
+      "updated_at": "2026-03-10T00:00:00Z",
+      "score_band_id": "score-900-990",
+      "score_min": 900,
+      "score_max": 990,
+      "sequence": 1
+    },
+    {
+      "id": "rc-000-599-d1",
+      "type": "rc",
+      "level": 1,
+      "path": "content/rc/score-000-599-day1.md",
+      "checksum_sha256": "placeholder",
+      "updated_at": "2026-03-10T00:00:00Z",
+      "score_band_id": "score-000-599",
+      "score_min": 0,
+      "score_max": 599,
+      "sequence": 1
+    },
+    {
+      "id": "rc-600-699-d1",
+      "type": "rc",
+      "level": 2,
+      "path": "content/rc/score-600-699-day1.md",
+      "checksum_sha256": "placeholder",
+      "updated_at": "2026-03-10T00:00:00Z",
+      "score_band_id": "score-600-699",
+      "score_min": 600,
+      "score_max": 699,
+      "sequence": 1
+    },
+    {
+      "id": "rc-700-799-d1",
+      "type": "rc",
+      "level": 3,
+      "path": "content/rc/score-700-799-day1.md",
+      "checksum_sha256": "placeholder",
+      "updated_at": "2026-03-10T00:00:00Z",
+      "score_band_id": "score-700-799",
+      "score_min": 700,
+      "score_max": 799,
+      "sequence": 1
+    },
+    {
+      "id": "rc-800-899-d1",
+      "type": "rc",
+      "level": 4,
+      "path": "content/rc/score-800-899-day1.md",
+      "checksum_sha256": "placeholder",
+      "updated_at": "2026-03-10T00:00:00Z",
+      "score_band_id": "score-800-899",
+      "score_min": 800,
+      "score_max": 899,
+      "sequence": 1
+    },
+    {
+      "id": "rc-900-990-d1",
+      "type": "rc",
+      "level": 5,
+      "path": "content/rc/score-900-990-day1.md",
+      "checksum_sha256": "placeholder",
+      "updated_at": "2026-03-10T00:00:00Z",
+      "score_band_id": "score-900-990",
+      "score_min": 900,
+      "score_max": 990,
+      "sequence": 1
+    }
+  ]
+}
