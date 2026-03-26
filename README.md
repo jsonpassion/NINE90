@@ -1,60 +1,74 @@
-# NINE90 Content Repository
+# NINE90 — TOEIC 990 Content Repository
 
-TOEIC 990 학습 앱 콘텐츠 저장소.
+TOEIC 990 만점을 위한 학습 콘텐츠 저장소. iOS 앱 [NINE90](https://github.com/jsonpassion/NINE90)에서 동기화하여 사용합니다.
 
-## Directory Structure
+## 콘텐츠 현황 (v3.0.0)
+
+| 밴드 | 레벨 | VOCA 파일 | 단어 수 | RC 파일 | 문제 수 |
+|------|------|----------|--------|---------|--------|
+| 0-399 | 입문 | 100 | 1,000 | 100 | ~300 |
+| 400-599 | 중급 | 100 | 1,000 | 100 | ~300 |
+| 600-799 | 중상급 | 100 | 1,000 | 100 | ~400 |
+| 800-990 | 고급 | 100 | 1,000 | 100 | ~400 |
+| **합계** | | **400** | **4,000** | **400** | **~1,400** |
+
+## 디렉토리 구조
 
 ```
 nine90-content/
-├── manifest.json          ← App syncs this first
+├── manifest.json           ← 앱이 먼저 동기화하는 매니페스트
+├── privacy.md              ← 개인정보 처리방침 (한/영)
 ├── content/
-│   ├── voca/              ← Vocabulary card sets
-│   │   ├── band-000-399/  ← Beginner (입문)
-│   │   ├── band-400-599/  ← Lower Intermediate (중급 기초)
-│   │   ├── band-600-799/  ← Intermediate (중급)
-│   │   └── band-800-990/  ← Advanced (고급)
-│   └── rc/                ← Reading Comprehension passages
-│       ├── band-000-399/
-│       ├── band-400-599/
-│       ├── band-600-799/
-│       └── band-800-990/
+│   ├── voca/               ← 단어 카드 (10개/파일)
+│   │   ├── band-000-399/   ← voca-000-d01.md ~ d100.md
+│   │   ├── band-400-599/   ← voca-400-d01.md ~ d100.md
+│   │   ├── band-600-799/   ← voca-600-d01.md ~ d100.md
+│   │   └── band-800-990/   ← voca-800-d01.md ~ d100.md
+│   └── rc/                 ← 독해 지문 + 문제
+│       ├── band-000-399/   ← rc-000-001.md ~ 100.md (3문제/파일)
+│       ├── band-400-599/   ← rc-400-001.md ~ 100.md (3문제/파일)
+│       ├── band-600-799/   ← rc-600-001.md ~ 100.md (4문제/파일)
+│       └── band-800-990/   ← rc-800-001.md ~ 100.md (4문제/파일)
 ```
 
-## Adding Content
+## 콘텐츠 포맷
 
-### 1. VOCA File Format
+### VOCA (단어 카드)
 
 ```markdown
 ---
-id: voca-000-d03
+id: voca-000-d01
 type: voca
 level: 1
 difficulty: easy
 tags: [office, basics]
 source: nine90
 version: 1
-updated_at: 2026-03-15T00:00:00Z
+updated_at: 2026-03-23T00:00:00Z
 score_band_id: score-000-399
 score_min: 0
 score_max: 399
 ---
 
-- word | 뜻 | Example sentence. | 예문 한국어 번역.
+- word | 한국어 뜻 | Example sentence. | 예문 한국어 번역.
 - another | 또다른뜻 | Another example. | 또 다른 예문.
 ```
 
-### 2. RC File Format
+- 파일당 10개 단어 카드
+- 파이프(`|`) 구분: 단어 | 뜻 | 예문 | 예문 번역
+
+### RC (독해 지문)
 
 ```markdown
 ---
-id: rc-000-005
+id: rc-000-001
 type: rc
 level: 1
 difficulty: easy
 tags: [notice, office]
 source: nine90
 version: 1
-updated_at: 2026-03-15T00:00:00Z
+updated_at: 2026-03-23T00:00:00Z
 score_band_id: score-000-399
 score_min: 0
 score_max: 399
@@ -62,61 +76,44 @@ score_max: 399
 
 # Passage Title
 
-Passage text goes here. Multiple sentences forming a coherent TOEIC-style passage.
+Passage text here.
 
-## Q201. Question prompt here?
+## Q1. Question prompt?
 - A. Option A
 - B. Option B
 - C. Option C
 - D. Option D
 - Answer: B
-- Explanation: Why B is the correct answer.
-
-## Q202. Another question?
-- A. Option A
-- B. Option B
-- C. Option C
-- D. Option D
-- Answer: C
-- Explanation: Explanation text.
+- Explanation: Why B is correct.
 ```
 
-### 3. Update manifest.json
+- 밴드 000-599: 3문제/파일
+- 밴드 600-990: 4문제/파일
 
-After adding files, add corresponding entries to `manifest.json`:
+## 점수대 (Score Bands)
 
-```json
-{
-  "id": "voca-000-d03",
-  "type": "voca",
-  "level": 1,
-  "path": "content/voca/band-000-399/voca-000-d03.md",
-  "checksum_sha256": "placeholder",
-  "updated_at": "2026-03-15T00:00:00Z",
-  "tags": ["office", "basics"],
-  "score_band_id": "score-000-399",
-  "score_min": 0,
-  "score_max": 399,
-  "sequence": 3
-}
-```
+| ID | 범위 | 레벨 | VOCA 난이도 | RC 지문 길이 |
+|----|------|------|-----------|-------------|
+| `score-000-399` | 0-399 | 입문 | 기초 일상 어휘 | 80-120 단어 |
+| `score-400-599` | 400-599 | 중급 | 비즈니스 기초 | 150-200 단어 |
+| `score-600-799` | 600-799 | 중상급 | 전문 비즈니스 | 200-280 단어 |
+| `score-800-990` | 800-990 | 고급 | 법률/금융/기업 | 280-350 단어 |
 
-### 4. Bump version
+## 동기화 방식
 
-Update `manifest.json` top-level `version` field (e.g., `"1.0.0"` → `"1.1.0"`).
+1. 앱이 `manifest.json`을 다운로드
+2. 로컬 버전과 비교 → 변경 시 콘텐츠 다운로드
+3. 마크다운 파싱 → 앱 모델로 변환
+4. 오프라인 캐시 저장 (Application Support)
 
-## Naming Convention
+## 콘텐츠 추가 방법
 
-| Type | Pattern | Example |
-|------|---------|---------|
-| VOCA | `voca-{band}-d{day}` | `voca-000-d01`, `voca-400-d03` |
-| RC | `rc-{band}-{seq}` | `rc-000-001`, `rc-800-004` |
+1. 해당 밴드 디렉토리에 마크다운 파일 추가
+2. `manifest.json`의 `entries` 배열에 엔트리 추가
+3. `manifest.json`의 `version` 번호 증가
+4. 커밋 & 푸시 → 앱이 자동 동기화
 
-## Score Bands
+## 라이선스
 
-| ID | Range | Level |
-|----|-------|-------|
-| `score-000-399` | 0-399 | 입문 (Beginner) |
-| `score-400-599` | 400-599 | 중급 기초 (Lower Intermediate) |
-| `score-600-799` | 600-799 | 중급 (Intermediate) |
-| `score-800-990` | 800-990 | 고급 (Advanced) |
+모든 콘텐츠는 100% 오리지널로 제작되었으며 상업적 사용이 가능합니다.
+개별 영어 단어는 저작권의 대상이 아니며, 모든 예문과 지문은 독자적으로 작성되었습니다.
