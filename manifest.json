@@ -1,6 +1,6 @@
 {
-  "version": "c-a61081ead7f8",
-  "generated_at": "2026-07-10T03:44:42Z",
+  "version": "c-04eb714e2aeb",
+  "generated_at": "2026-07-10T06:04:22Z",
   "schema_version": 1,
   "track": "toeic-990",
   "profile": {
@@ -105,6 +105,18 @@
       "sequence": 5
     },
     {
+      "id": "voca-000-399-u006",
+      "type": "voca",
+      "level": 1,
+      "path": "content/voca/score-000-399/unit-006.md",
+      "checksum_sha256": "5e6f7067c7a1ab22fa848114380fbd4223a795949dd5abc2e7997b6c7534de09",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "score_band_id": "score-000-399",
+      "score_min": 0,
+      "score_max": 399,
+      "sequence": 6
+    },
+    {
       "id": "voca-400-599-u001",
       "type": "voca",
       "level": 2,
@@ -163,6 +175,18 @@
       "score_min": 400,
       "score_max": 599,
       "sequence": 5
+    },
+    {
+      "id": "voca-400-599-u006",
+      "type": "voca",
+      "level": 2,
+      "path": "content/voca/score-400-599/unit-006.md",
+      "checksum_sha256": "b1a4ed9eabae64e37bed6692ecf8a86e6661318d5dc30e306410b429153eeacf",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "score_band_id": "score-400-599",
+      "score_min": 400,
+      "score_max": 599,
+      "sequence": 6
     },
     {
       "id": "voca-600-799-u001",
@@ -225,6 +249,18 @@
       "sequence": 5
     },
     {
+      "id": "voca-600-799-u006",
+      "type": "voca",
+      "level": 3,
+      "path": "content/voca/score-600-799/unit-006.md",
+      "checksum_sha256": "d95c80ca830ca066c97bd53d986bfc33b077fb1d7a3b1a8ab1b3493e727c1b09",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "score_band_id": "score-600-799",
+      "score_min": 600,
+      "score_max": 799,
+      "sequence": 6
+    },
+    {
       "id": "voca-800-990-u001",
       "type": "voca",
       "level": 4,
@@ -283,6 +319,18 @@
       "score_min": 800,
       "score_max": 990,
       "sequence": 5
+    },
+    {
+      "id": "voca-800-990-u006",
+      "type": "voca",
+      "level": 4,
+      "path": "content/voca/score-800-990/unit-006.md",
+      "checksum_sha256": "17c628db5d958d32a7efdbd3f8840c94816dcef63e408c90ebc3ff48b23ffe2a",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "score_band_id": "score-800-990",
+      "score_min": 800,
+      "score_max": 990,
+      "sequence": 6
     }
   ]
 }
