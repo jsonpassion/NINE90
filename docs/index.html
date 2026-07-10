@@ -22,7 +22,7 @@
     <div class="nav-links">
       <a href="#how">학습 방법</a>
       <a href="#features">기능</a>
-      <a href="#levels">레벨</a>
+      <a href="#demo">미리 해보기</a>
       <a href="#screens">스크린샷</a>
       <a href="#pricing">가격</a>
       <a class="nb-btn nav-cta" href="#download">다운로드</a>
@@ -34,7 +34,7 @@
 <header class="hero wrap" id="download">
   <div>
     <span class="nb-tag" style="background: var(--pink); margin-bottom: 18px;">TOEIC 어휘 · 회독 특화</span>
-    <h1>보고, 또 보고.<br /><span class="hl">회독</span>으로 끝내는<br />TOEIC 990 단어</h1>
+    <h1>보고, 또 보고.<br /><span class="hl">회독</span> 으로 끝내는<br />TOEIC 990 단어</h1>
     <p class="sub">
       한 번 본 단어는 잊혀도, 열 번 본 단어는 남습니다.
       NINE90은 모르는 단어에 <strong>집요하게</strong> 다시 노출시키는
@@ -203,26 +203,49 @@
       <p>네오브루탈리즘 디자인 — 두꺼운 테두리, 단단한 그림자, 선명한 색.</p>
     </div>
     <div class="shots">
-      <!-- 스크린샷 교체 방법: .shot-ph div를 지우고
-           <img src="assets/screen-dashboard.png" alt="..."> 로 교체 -->
+      <!-- GIF 교체 방법 (호버 시 재생):
+           .shot-ph div를 지우고 아래처럼 교체하면 JS가 자동으로
+           마우스 호버 시 GIF 재생 / 벗어나면 정지 화면으로 되돌립니다.
+           <img data-still="assets/still-dashboard.png"
+                data-gif="assets/demo-dashboard.gif"
+                src="assets/still-dashboard.png" alt="대시보드" />       -->
       <div>
         <div class="shot-frame">
-          <div class="shot-ph">📱<br />대시보드<br />스크린샷 준비 중</div>
+          <div class="shot-ph">📱<br />대시보드<br />GIF 준비 중<br /><span class="play-badge">▶ 호버하면 재생</span></div>
         </div>
         <p class="shot-cap">책장으로 보는 학습 진도</p>
       </div>
       <div>
         <div class="shot-frame">
-          <div class="shot-ph">📱<br />단어 카드<br />스크린샷 준비 중</div>
+          <div class="shot-ph">📱<br />단어 카드<br />GIF 준비 중<br /><span class="play-badge">▶ 호버하면 재생</span></div>
         </div>
         <p class="shot-cap">스와이프 회독 학습</p>
       </div>
       <div>
         <div class="shot-frame">
-          <div class="shot-ph">📱<br />3초 퀴즈<br />스크린샷 준비 중</div>
+          <div class="shot-ph">📱<br />3초 퀴즈<br />GIF 준비 중<br /><span class="play-badge">▶ 호버하면 재생</span></div>
         </div>
         <p class="shot-cap">모름 단어 3초 퀴즈</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= LIVE DEMO (3초 퀴즈 맛보기) ======================= -->
+<section id="demo">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>다운로드 전에, 직접 해보세요</h2>
+      <p>앱의 시그니처 — 3초 룰 퀴즈. 3초 안에 못 고르면 모르는 겁니다.</p>
+    </div>
+    <div class="demo-card">
+      <div class="demo-timer" id="demoTimer"><i id="demoTimerFill"></i></div>
+      <div class="demo-meta"><span id="demoCount">6문제 · 문제당 3초</span><span id="demoTag">실전 TOEIC 단어</span></div>
+      <div id="demoStage" class="demo-center">
+        <p style="color: var(--body); font-weight: 700; margin: 18px 0 22px;">여섯 단어, 문제당 3초.<br />앱과 똑같은 규칙으로 돌아갑니다.</p>
+        <button class="nb-btn" id="demoStart">퀴즈 시작</button>
+      </div>
+      <p class="demo-note" id="demoNote"></p>
     </div>
   </div>
 </section>
@@ -296,6 +319,129 @@
     <span class="ets">TOEIC은 ETS(Educational Testing Service)의 등록 상표입니다. 본 앱과 사이트는 ETS와 무관하며, ETS의 보증이나 승인을 받지 않았습니다. TOEIC is a registered trademark of ETS. This product is not endorsed or approved by ETS.</span>
   </div>
 </footer>
+
+<script>
+/* ---------- GIF hover-play: swap still ↔ gif ---------- */
+document.querySelectorAll('.shots img[data-gif]').forEach(function (img) {
+  var frame = img.closest('.shot-frame');
+  frame.addEventListener('mouseenter', function () { img.src = img.dataset.gif; });
+  frame.addEventListener('mouseleave', function () { img.src = img.dataset.still; });
+});
+
+/* ---------- 3초 퀴즈 맛보기 (앱의 WordQuizView와 같은 규칙) ---------- */
+(function () {
+  var QUESTIONS = [
+    { w: 'deadline',   o: ['마감 기한', '환불', '영수증', '회의'], a: 0 },
+    { w: 'refund',     o: ['할인', '환불', '급여', '견적'], a: 1 },
+    { w: 'comply',     o: ['연기하다', '협상하다', '준수하다', '승진하다'], a: 2 },
+    { w: 'expedite',   o: ['면제하다', '신속히 처리하다', '완화하다', '축적하다'], a: 1 },
+    { w: 'meticulous', o: ['수익성이 좋은', '불가피한', '임시의', '꼼꼼한'], a: 3 },
+    { w: 'warranty',   o: ['품질 보증', '재고', '수수료', '예산'], a: 0 }
+  ];
+  var LIMIT = 3000, REVEAL = 900;
+
+  var stage = document.getElementById('demoStage');
+  var timer = document.getElementById('demoTimer');
+  var fill = document.getElementById('demoTimerFill');
+  var count = document.getElementById('demoCount');
+  var note = document.getElementById('demoNote');
+  var idx = 0, score = 0, timers = [];
+
+  document.getElementById('demoStart').addEventListener('click', start);
+
+  function clearTimers() { timers.forEach(clearTimeout); timers = []; }
+
+  function start() {
+    idx = 0; score = 0;
+    note.textContent = '';
+    show();
+  }
+
+  function resetBar() {
+    timer.classList.remove('warn', 'hot');
+    fill.style.transition = 'none';
+    fill.style.width = '100%';
+    void fill.offsetWidth; /* reflow — restart the transition */
+    fill.style.transition = 'width ' + LIMIT + 'ms linear';
+    fill.style.width = '0%';
+  }
+
+  function show() {
+    clearTimers();
+    var q = QUESTIONS[idx];
+    count.textContent = (idx + 1) + ' / ' + QUESTIONS.length;
+    note.textContent = '';
+    stage.classList.remove('demo-center');
+    stage.innerHTML = '<div class="demo-word">' + q.w + '</div>' +
+      q.o.map(function (opt, i) {
+        return '<button class="demo-opt" data-i="' + i + '">' + opt + '</button>';
+      }).join('');
+    stage.querySelectorAll('.demo-opt').forEach(function (btn) {
+      btn.addEventListener('click', function () { answer(parseInt(btn.dataset.i, 10)); });
+    });
+    resetBar();
+    timers.push(setTimeout(function () { timer.classList.add('warn'); }, LIMIT / 3));
+    timers.push(setTimeout(function () { timer.classList.add('hot'); }, LIMIT * 2 / 3));
+    timers.push(setTimeout(timeUp, LIMIT));
+  }
+
+  function freezeBar() {
+    var w = getComputedStyle(fill).width;
+    fill.style.transition = 'none';
+    fill.style.width = w;
+  }
+
+  function reveal(picked) {
+    clearTimers();
+    freezeBar();
+    var q = QUESTIONS[idx];
+    stage.querySelectorAll('.demo-opt').forEach(function (btn, i) {
+      btn.disabled = true;
+      if (i === q.a) btn.classList.add('correct');
+      else if (i === picked) btn.classList.add('wrong');
+    });
+  }
+
+  function answer(i) {
+    var q = QUESTIONS[idx];
+    reveal(i);
+    if (i === q.a) { score++; note.textContent = '정답! 앱에서는 "알아요"로 기록됩니다.'; }
+    else { note.textContent = '오답 — 앱에서는 모름 단어로 남아 다시 만나게 됩니다.'; }
+    timers.push(setTimeout(next, REVEAL));
+  }
+
+  function timeUp() {
+    reveal(-1);
+    note.textContent = '⏰ 시간 초과 — 3초 안에 못 고르면 모르는 겁니다.';
+    timers.push(setTimeout(next, REVEAL + 200));
+  }
+
+  function next() {
+    idx++;
+    if (idx < QUESTIONS.length) { show(); return; }
+    finish();
+  }
+
+  function finish() {
+    clearTimers();
+    fill.style.transition = 'none';
+    fill.style.width = '100%';
+    timer.classList.remove('warn', 'hot');
+    count.textContent = '완료';
+    stage.classList.add('demo-center');
+    var msg = score === QUESTIONS.length
+      ? '완벽해요. 고급 레벨에서 기다릴게요.'
+      : '틀린 ' + (QUESTIONS.length - score) + '개 — 앱에서는 외울 때까지 다시 만납니다.';
+    stage.innerHTML =
+      '<div class="demo-score">' + score + ' / ' + QUESTIONS.length + '</div>' +
+      '<p style="color: var(--body); font-weight: 700; margin-bottom: 20px;">' + msg + '</p>' +
+      '<button class="nb-btn" id="demoRetry">다시 도전</button> ' +
+      '<a class="nb-btn mint" href="#download">앱에서 계속하기</a>';
+    note.textContent = '';
+    document.getElementById('demoRetry').addEventListener('click', start);
+  }
+})();
+</script>
 
 </body>
 </html>
