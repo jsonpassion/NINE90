@@ -476,7 +476,29 @@ section.alt { background: var(--surface); border-top: var(--bw) solid var(--ink)
 }
 .price-card.hot { background: var(--yellow); box-shadow: 7px 7px 0 var(--ink); }
 .price-card h3 { font-size: 20px; font-weight: 900; }
-.price-card .price { font-size: 34px; font-weight: 900; margin: 12px 0 4px; }
+.price-card .price { font-size: 34px; font-weight: 900; margin: 4px 0 2px; }
+.price-card .price-was {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--danger);
+  text-decoration: line-through;
+  text-decoration-thickness: 3px;
+  margin-top: 12px;
+}
+.price-card .price-note { font-size: 13px; font-weight: 700; color: var(--body); }
+.sale-badge {
+  display: inline-block;
+  padding: 5px 14px;
+  font-size: 13px;
+  font-weight: 900;
+  color: #fff;
+  background: var(--danger);
+  border: 2.5px solid var(--ink);
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+  transform: rotate(-2deg);
+  margin-bottom: 10px;
+}
 .price-card ul { list-style: none; margin: 18px 0 0; text-align: left; }
 .price-card li { padding: 7px 0; font-weight: 700; font-size: 15px; border-bottom: 2px dashed rgba(26,26,26,0.25); }
 .price-card li:last-child { border-bottom: none; }
