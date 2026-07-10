@@ -389,7 +389,19 @@ footer {
 footer .wrap { display: flex; flex-wrap: wrap; gap: 16px 28px; align-items: center; }
 footer a { color: var(--yellow); font-weight: 800; text-decoration: none; }
 footer a:hover { text-decoration: underline; }
+footer .biz { flex-basis: 100%; font-weight: 700; opacity: 0.85; }
 footer .ets { flex-basis: 100%; opacity: 0.65; font-size: 12.5px; }
+footer .contact-btn {
+  display: inline-block;
+  padding: 7px 16px;
+  background: var(--yellow);
+  color: var(--ink) !important;
+  border: 2.5px solid var(--page-bg);
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+}
+footer .contact-btn:hover { transform: translate(1px, 1px); text-decoration: none; }
 
 /* ---------- Policy pages ---------- */
 
