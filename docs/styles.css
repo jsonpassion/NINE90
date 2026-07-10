@@ -265,6 +265,41 @@ section.alt { background: var(--surface); border-top: var(--bw) solid var(--ink)
 .sec-head h2 { font-size: clamp(26px, 3.6vw, 36px); font-weight: 900; letter-spacing: -0.5px; }
 .sec-head p { color: var(--body); margin-top: 10px; font-size: 17px; }
 
+/* ---------- Half-press hover (모든 눌러지게 생긴 NB 컴포넌트) ----------
+   Full press = shadow collapses to 0 and the face moves onto it.
+   Hover = HALF press: translate ~half the shadow, shadow shrinks ~half. */
+
+.feature, .level, .price-card, .step, .faq details, .shot-frame, .demo-card {
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.feature:hover, .step:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.level:hover, .faq details:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+.price-card:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.price-card.hot:hover { box-shadow: 3px 3px 0 var(--ink); }
+.shot-frame:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+/* Phone mock — playful shake on hover */
+@keyframes phone-shake {
+  0%, 100% { transform: rotate(0deg) translateX(0); }
+  20% { transform: rotate(-2.5deg) translateX(-3px); }
+  40% { transform: rotate(2deg) translateX(3px); }
+  60% { transform: rotate(-1.5deg) translateX(-2px); }
+  80% { transform: rotate(1deg) translateX(1px); }
+}
+.phone:hover { animation: phone-shake 0.55s ease-in-out; }
+
 /* How it works — 4 steps */
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 .step {
@@ -347,6 +382,76 @@ section.alt { background: var(--surface); border-top: var(--bw) solid var(--ink)
   padding: 10px;
 }
 .shot-cap { text-align: center; font-weight: 800; margin-top: 12px; }
+
+/* GIF hover-play: still frame by default, GIF swaps in on hover (JS) */
+.play-badge {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 4px 12px;
+  font-size: 11.5px;
+  font-weight: 900;
+  background: var(--yellow);
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  transition: transform 0.15s ease;
+}
+.shot-frame:hover .play-badge { transform: scale(1.12); }
+
+/* ---------- 미리 해보기 — 3초 퀴즈 데모 ---------- */
+
+.demo-card {
+  max-width: 540px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  border: var(--bw) solid var(--ink);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-md);
+  padding: 28px 26px;
+}
+.demo-timer {
+  height: 12px;
+  border: 2.5px solid var(--ink);
+  border-radius: 999px;
+  background: var(--surface);
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+.demo-timer i {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: var(--mint);
+  transition: background 0.3s ease;
+}
+.demo-timer.warn i { background: var(--yellow); }
+.demo-timer.hot i { background: var(--coral); }
+.demo-meta { display: flex; justify-content: space-between; font-size: 13px; font-weight: 800; color: var(--body); margin-bottom: 14px; }
+.demo-word { font-size: 36px; font-weight: 900; text-align: center; margin: 14px 0 22px; letter-spacing: -0.5px; }
+.demo-opt {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  font-size: 15.5px;
+  font-weight: 800;
+  color: var(--ink);
+  padding: 13px 16px;
+  margin: 9px 0;
+  background: var(--card-bg);
+  border: var(--bw) solid var(--ink);
+  border-radius: var(--r-sm);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
+}
+.demo-opt:hover:not(:disabled) { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+.demo-opt:active:not(:disabled) { transform: translate(3px, 3px); box-shadow: none; }
+.demo-opt.correct { background: var(--mint); }
+.demo-opt.wrong { background: var(--coral); opacity: 0.8; }
+.demo-opt:disabled { cursor: default; }
+.demo-center { text-align: center; }
+.demo-note { text-align: center; font-size: 13px; font-weight: 700; color: var(--body); margin-top: 14px; min-height: 20px; }
+.demo-score { font-size: 44px; font-weight: 900; margin: 8px 0; }
 
 /* Pricing */
 .pricing { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; max-width: 760px; margin: 0 auto; }
