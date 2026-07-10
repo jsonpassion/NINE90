@@ -265,6 +265,27 @@ section.alt { background: var(--surface); border-top: var(--bw) solid var(--ink)
 .sec-head h2 { font-size: clamp(26px, 3.6vw, 36px); font-weight: 900; letter-spacing: -0.5px; }
 .sec-head p { color: var(--body); margin-top: 10px; font-size: 17px; }
 
+/* How it works — 4 steps */
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.step {
+  background: var(--card-bg);
+  border: var(--bw) solid var(--ink);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-md);
+  padding: 22px 20px;
+}
+.step-num {
+  display: grid; place-items: center;
+  width: 42px; height: 42px;
+  font-size: 19px; font-weight: 900;
+  border: var(--bw) solid var(--ink);
+  border-radius: var(--r-sm);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 14px;
+}
+.step h3 { font-size: 17px; font-weight: 900; margin-bottom: 8px; }
+.step p { font-size: 14px; color: var(--body); }
+
 /* Features */
 .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .feature {
@@ -420,6 +441,7 @@ body.en .lang-ko { display: none; }
   .hero-ctas { justify-content: center; }
   .phone { rotate: 0deg; margin-top: 10px; }
   .grid { grid-template-columns: 1fr 1fr; }
+  .steps { grid-template-columns: 1fr 1fr; }
   .levels { grid-template-columns: 1fr 1fr; }
   .shots { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; }
   .pricing { grid-template-columns: 1fr; }
@@ -428,5 +450,6 @@ body.en .lang-ko { display: none; }
 
 @media (max-width: 540px) {
   .grid { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; }
   .policy-card { padding: 28px 20px; }
 }
