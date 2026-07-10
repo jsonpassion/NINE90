@@ -1,6 +1,6 @@
 {
-  "version": "c-2fb078336e6b",
-  "generated_at": "2026-07-10T03:12:29Z",
+  "version": "c-a61081ead7f8",
+  "generated_at": "2026-07-10T03:44:42Z",
   "schema_version": 1,
   "track": "toeic-990",
   "profile": {
@@ -69,6 +69,42 @@
       "sequence": 2
     },
     {
+      "id": "voca-000-399-u003",
+      "type": "voca",
+      "level": 1,
+      "path": "content/voca/score-000-399/unit-003.md",
+      "checksum_sha256": "7a9e04d9c5b3e977c4857d034d9461537c6bdc587c3a551da8abbbe7699097f0",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "score_band_id": "score-000-399",
+      "score_min": 0,
+      "score_max": 399,
+      "sequence": 3
+    },
+    {
+      "id": "voca-000-399-u004",
+      "type": "voca",
+      "level": 1,
+      "path": "content/voca/score-000-399/unit-004.md",
+      "checksum_sha256": "f9975d9ae38c5fb9d5e28474e0db42ce860f59ad3bb9567d8a9b2b71b2eb5bd3",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "score_band_id": "score-000-399",
+      "score_min": 0,
+      "score_max": 399,
+      "sequence": 4
+    },
+    {
+      "id": "voca-000-399-u005",
+      "type": "voca",
+      "level": 1,
+      "path": "content/voca/score-000-399/unit-005.md",
+      "checksum_sha256": "9ab1627cc9e11e52728f7cdc3e144a4344be847471fde3fa88958627cd1855fa",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "score_band_id": "score-000-399",
+      "score_min": 0,
+      "score_max": 399,
+      "sequence": 5
+    },
+    {
       "id": "voca-400-599-u001",
       "type": "voca",
       "level": 2,
@@ -91,6 +127,42 @@
       "score_min": 400,
       "score_max": 599,
       "sequence": 2
+    },
+    {
+      "id": "voca-400-599-u003",
+      "type": "voca",
+      "level": 2,
+      "path": "content/voca/score-400-599/unit-003.md",
+      "checksum_sha256": "4c2d1bc1360e133117449b1298da549c759cd19920c3e06aae6cdb14bb0cb4bb",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "score_band_id": "score-400-599",
+      "score_min": 400,
+      "score_max": 599,
+      "sequence": 3
+    },
+    {
+      "id": "voca-400-599-u004",
+      "type": "voca",
+      "level": 2,
+      "path": "content/voca/score-400-599/unit-004.md",
+      "checksum_sha256": "283c72ef539375af1917e8c59e9b55fc9adfea5f87ffdc7aef566f28e6b80211",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "score_band_id": "score-400-599",
+      "score_min": 400,
+      "score_max": 599,
+      "sequence": 4
+    },
+    {
+      "id": "voca-400-599-u005",
+      "type": "voca",
+      "level": 2,
+      "path": "content/voca/score-400-599/unit-005.md",
+      "checksum_sha256": "d8b7c34a9c02ba7a59db2f922e4ac5e3acfa6d934169e94b436c8593c4756b9c",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "score_band_id": "score-400-599",
+      "score_min": 400,
+      "score_max": 599,
+      "sequence": 5
     },
     {
       "id": "voca-600-799-u001",
@@ -117,6 +189,42 @@
       "sequence": 2
     },
     {
+      "id": "voca-600-799-u003",
+      "type": "voca",
+      "level": 3,
+      "path": "content/voca/score-600-799/unit-003.md",
+      "checksum_sha256": "45cd8ee4566c26e9b696d5326175e11b1dabfa4532a7d9d95d3ee969ac66ed27",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "score_band_id": "score-600-799",
+      "score_min": 600,
+      "score_max": 799,
+      "sequence": 3
+    },
+    {
+      "id": "voca-600-799-u004",
+      "type": "voca",
+      "level": 3,
+      "path": "content/voca/score-600-799/unit-004.md",
+      "checksum_sha256": "97bc559534142d146d05d73688a445a43abfeca00295f317e457e81f8cc1d121",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "score_band_id": "score-600-799",
+      "score_min": 600,
+      "score_max": 799,
+      "sequence": 4
+    },
+    {
+      "id": "voca-600-799-u005",
+      "type": "voca",
+      "level": 3,
+      "path": "content/voca/score-600-799/unit-005.md",
+      "checksum_sha256": "449af57b8142a7a6899254f3d714ca8433356eed577c244d537753c410f82ea2",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "score_band_id": "score-600-799",
+      "score_min": 600,
+      "score_max": 799,
+      "sequence": 5
+    },
+    {
       "id": "voca-800-990-u001",
       "type": "voca",
       "level": 4,
@@ -139,6 +247,42 @@
       "score_min": 800,
       "score_max": 990,
       "sequence": 2
+    },
+    {
+      "id": "voca-800-990-u003",
+      "type": "voca",
+      "level": 4,
+      "path": "content/voca/score-800-990/unit-003.md",
+      "checksum_sha256": "c95d56b3bcb7230a11327f6a1df6c122cd1b284afee11ecbdf45b88db21beb80",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "score_band_id": "score-800-990",
+      "score_min": 800,
+      "score_max": 990,
+      "sequence": 3
+    },
+    {
+      "id": "voca-800-990-u004",
+      "type": "voca",
+      "level": 4,
+      "path": "content/voca/score-800-990/unit-004.md",
+      "checksum_sha256": "67fda6a0c922b364ec1ce34cfd218a6585f1afc4f2c1bc6f725c852ba10b6336",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "score_band_id": "score-800-990",
+      "score_min": 800,
+      "score_max": 990,
+      "sequence": 4
+    },
+    {
+      "id": "voca-800-990-u005",
+      "type": "voca",
+      "level": 4,
+      "path": "content/voca/score-800-990/unit-005.md",
+      "checksum_sha256": "5b6d77d9a7a703a51eb549e441ff18c7923308ffbdb75610bf497b6703210d44",
+      "updated_at": "2026-07-10T00:00:00Z",
+      "score_band_id": "score-800-990",
+      "score_min": 800,
+      "score_max": 990,
+      "sequence": 5
     }
   ]
 }
