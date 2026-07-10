@@ -37,6 +37,10 @@
 
 html { scroll-behavior: smooth; }
 
+/* Anchored sections land BELOW the sticky nav, with breathing room —
+   otherwise their headings hide under the bar. */
+section[id], header[id] { scroll-margin-top: 84px; }
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
     "Pretendard", "Segoe UI", "Noto Sans KR", sans-serif;
@@ -136,6 +140,13 @@ body {
   font-size: 15px;
 }
 .nav-links a:hover { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 4px; text-decoration-color: var(--yellow); }
+/* Scroll spy: the nav tracks the section you're reading */
+.nav-links a.active:not(.nav-cta) {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--coral);
+}
 .nav-cta { padding: 8px 16px !important; font-size: 14px !important; }
 
 /* ---------- Hero ---------- */
