@@ -440,6 +440,17 @@ section.alt { background: var(--surface); border-top: var(--bw) solid var(--ink)
   font-size: 12px;
 }
 .sa-top { display: flex; align-items: center; justify-content: space-between; }
+/* Dashboard mock fills its tall frame: blocks spread evenly, sized up */
+.sa-dash { justify-content: space-between; }
+.sa-dash .sa-card { padding: 13px 12px; }
+.sa-dash .sa-ring { width: 70px; height: 70px; }
+.sa-dash .sa-ring::after { inset: 10px; }
+.sa-dash .sa-ring span { font-size: 16px; }
+.sa-dash .sa-bar { height: 11px; }
+.sa-dash .sa-bars small { font-size: 10.5px; margin: 3px 0; }
+.sa-dash .sa-cell { padding: 8px 0; font-size: 10px; }
+.sa-dash .sa-cta { padding: 12px 0; font-size: 13px; }
+.sa-dash .sa-weak { font-size: 12.5px; }
 .sa-pill {
   font-size: 10.5px; font-weight: 900; color: var(--ink);
   border: 2px solid var(--ink); border-radius: 999px;
@@ -483,19 +494,28 @@ section.alt { background: var(--surface); border-top: var(--bw) solid var(--ink)
 .sa-fill-blue { background: var(--blue); animation: sa-bar-b 6s ease-in-out infinite; }
 @keyframes sa-bar-a { 0%, 10% { width: 32%; } 45%, 70% { width: 68%; } 100% { width: 32%; } }
 @keyframes sa-bar-b { 0%, 14% { width: 45%; } 50%, 70% { width: 82%; } 100% { width: 45%; } }
-.sa-shelf { display: flex; gap: 6px; margin-bottom: 8px; }
+.sa-shelf { display: flex; gap: 8px; margin-bottom: 10px; }
 .sa-book {
   flex: 1; position: relative;
-  border: 2px solid var(--ink); border-radius: 8px;
+  aspect-ratio: 5 / 7;                     /* portrait — reads as a book */
+  border: 2px solid var(--ink); border-radius: 7px;
+  border-left: 6px solid var(--orange);    /* band-tint spine */
   background: var(--surface);
-  font-size: 10px; font-weight: 900; text-align: center;
-  padding: 12px 0 6px;
-  border-left: 7px solid var(--orange);
+  font-size: 10.5px; font-weight: 900; text-align: center;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 3px;
+}
+.sa-book i { font-style: normal; font-size: 11px; height: 13px; line-height: 13px; }
+.sa-book::after {
+  content: ""; width: 58%; height: 5px; border-radius: 999px;
+  border: 1.5px solid var(--ink); background: var(--card-bg); margin-top: 2px;
 }
 .sa-book.sa-done { background: var(--mint); }
+.sa-book.sa-done::after { background: var(--mint); }
 .sa-book.sa-reading { background: var(--orange); animation: sa-book-pop 6s ease-in-out infinite; }
+.sa-book.sa-reading::after { background: linear-gradient(to right, var(--coral) 55%, var(--card-bg) 0); }
 .sa-book.sa-reading b {
-  position: absolute; top: -2px; right: 6px; width: 8px; height: 15px;
+  position: absolute; top: -2px; right: 7px; width: 9px; height: 17px;
   background: var(--danger, #E03131); border: 1.5px solid var(--ink);
   clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 72%, 0 100%);
   animation: sa-ribbon 6s ease-in-out infinite;
@@ -509,6 +529,13 @@ section.alt { background: var(--surface); border-top: var(--bw) solid var(--ink)
   font-size: 9px; font-weight: 800; padding: 5px 0;
 }
 .sa-cur { background: var(--orange); }
+.sa-stats {
+  display: flex; align-items: center; gap: 8px;
+  margin-top: 9px;
+  font-size: 9.5px; font-weight: 800; color: var(--body);
+}
+.sa-stats b { font-weight: 800; }
+.sa-stats em { margin-left: auto; font-style: normal; color: var(--coral); font-weight: 900; }
 .sa-c1, .sa-c2, .sa-c3 { animation: sa-cell-done 6s ease-in-out infinite; }
 .sa-c2 { animation-delay: 0.5s; }
 .sa-c3 { animation-delay: 1s; }
@@ -518,7 +545,6 @@ section.alt { background: var(--surface); border-top: var(--bw) solid var(--ink)
   100% { background: var(--surface); }
 }
 .sa-weak {
-  margin-top: auto;
   display: flex; align-items: center; gap: 6px;
   font-size: 11.5px; font-weight: 800;
 }
