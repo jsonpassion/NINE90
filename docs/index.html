@@ -206,30 +206,84 @@
   <div class="wrap">
     <div class="sec-head">
       <h2>스크린샷</h2>
-      <p>네오브루탈리즘 디자인 — 두꺼운 테두리, 단단한 그림자, 선명한 색.</p>
+      <p>네오브루탈리즘 디자인 — 세 가지 핵심 화면이 실제 앱처럼 움직입니다.</p>
     </div>
     <div class="shots">
-      <!-- GIF 교체 방법 (호버 시 재생):
-           .shot-ph div를 지우고 아래처럼 교체하면 JS가 자동으로
-           마우스 호버 시 GIF 재생 / 벗어나면 정지 화면으로 되돌립니다.
-           <img data-still="assets/still-dashboard.png"
-                data-gif="assets/demo-dashboard.gif"
-                src="assets/still-dashboard.png" alt="대시보드" />       -->
       <div>
         <div class="shot-frame">
-          <div class="shot-ph">📱<br />대시보드<br />GIF 준비 중<br /><span class="play-badge">▶ 호버하면 재생</span></div>
+          <div class="shot-anim" aria-label="대시보드 애니메이션 미리보기">
+            <div class="sa-top">
+              <span class="sa-pill" style="background: var(--orange);">중급</span>
+              <span class="sa-pill" style="background: var(--yellow);">전권 2회독</span>
+            </div>
+            <div class="sa-card">
+              <div class="sa-ring"><i></i><span>735</span></div>
+              <div class="sa-bars">
+                <small>외운 단어</small>
+                <div class="sa-bar"><i class="sa-fill-mint"></i></div>
+                <small>이번 회독</small>
+                <div class="sa-bar"><i class="sa-fill-blue"></i></div>
+              </div>
+            </div>
+            <div class="sa-card">
+              <div class="sa-shelf">
+                <div class="sa-book sa-done">1권</div>
+                <div class="sa-book sa-reading"><b></b>2권</div>
+                <div class="sa-book">3권</div>
+                <div class="sa-book">4권</div>
+              </div>
+              <div class="sa-grid">
+                <span class="sa-cell sa-c1">Ch.11</span>
+                <span class="sa-cell sa-c2">Ch.12</span>
+                <span class="sa-cell sa-c3">Ch.13</span>
+                <span class="sa-cell sa-cur">▶ Ch.14</span>
+                <span class="sa-cell">Ch.15</span>
+                <span class="sa-cell">Ch.16</span>
+              </div>
+            </div>
+            <div class="sa-card sa-weak">
+              <span>모름 단어 <b>12</b>개</span>
+              <span class="sa-pill" style="background: var(--coral);">카드</span>
+              <span class="sa-pill" style="background: var(--pink);">퀴즈</span>
+            </div>
+            <div class="sa-cta">▶ 이어서 학습하기</div>
+          </div>
         </div>
         <p class="shot-cap">책장으로 보는 학습 진도</p>
       </div>
       <div>
         <div class="shot-frame">
-          <div class="shot-ph">📱<br />단어 카드<br />GIF 준비 중<br /><span class="play-badge">▶ 호버하면 재생</span></div>
+          <div class="shot-anim" aria-label="단어 카드 스와이프 애니메이션 미리보기">
+            <div class="sa-top">
+              <span class="sa-pill" style="background: var(--mint);">VOCA</span>
+              <span class="sa-count">4/10장 · 알아요 3 · 모름 1</span>
+            </div>
+            <div class="sa-stage">
+              <div class="sa-word sa-back"></div>
+              <div class="sa-word sa-cardB"><h4>verify</h4><p>확인하다</p><em>/ˈverɪfaɪ/</em><div class="sa-tint sa-tint-coral">✕ 모름</div></div>
+              <div class="sa-word sa-cardA"><h4>expedite</h4><p>신속히 처리하다</p><em>/ˈekspədaɪt/</em><div class="sa-tint sa-tint-mint">✓ 알아요</div></div>
+            </div>
+            <div class="sa-btns">
+              <span class="sa-btn sa-no">✕ 모름</span>
+              <span class="sa-btn sa-ok">✓ 알아요</span>
+            </div>
+          </div>
         </div>
         <p class="shot-cap">스와이프 회독 학습</p>
       </div>
       <div>
         <div class="shot-frame">
-          <div class="shot-ph">📱<br />3초 퀴즈<br />GIF 준비 중<br /><span class="play-badge">▶ 호버하면 재생</span></div>
+          <div class="shot-anim" aria-label="3초 퀴즈 애니메이션 미리보기">
+            <div class="sa-qbar"><i></i></div>
+            <div class="sa-qmeta"><span>7/12</span><span class="sa-pill" style="background: var(--yellow);">3초</span></div>
+            <div class="sa-qword"><small>이 단어의 뜻은?</small><h4>meticulous</h4></div>
+            <div class="sa-opts">
+              <span class="sa-opt">수익성이 좋은</span>
+              <span class="sa-opt">불가피한</span>
+              <span class="sa-opt sa-correct">꼼꼼한<b>✓</b></span>
+              <span class="sa-opt">임시의</span>
+            </div>
+          </div>
         </div>
         <p class="shot-cap">모름 단어 3초 퀴즈</p>
       </div>
@@ -357,13 +411,6 @@
 
   targets.forEach(function (t) { observer.observe(t); });
 })();
-
-/* ---------- GIF hover-play: swap still ↔ gif ---------- */
-document.querySelectorAll('.shots img[data-gif]').forEach(function (img) {
-  var frame = img.closest('.shot-frame');
-  frame.addEventListener('mouseenter', function () { img.src = img.dataset.gif; });
-  frame.addEventListener('mouseleave', function () { img.src = img.dataset.still; });
-});
 
 /* ---------- 3초 퀴즈 맛보기 (앱의 WordQuizView와 같은 규칙) ---------- */
 (function () {

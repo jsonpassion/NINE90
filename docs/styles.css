@@ -425,6 +425,217 @@ section.alt { background: var(--surface); border-top: var(--bw) solid var(--ink)
 }
 .shot-cap { text-align: center; font-weight: 800; margin-top: 12px; }
 
+/* ---------- 스크린샷 — 살아있는 NB 목업 (Lottie-style CSS loops) ---------- */
+
+.shot-anim {
+  width: 100%; height: 100%;
+  border: 2px solid var(--ink);
+  border-radius: 20px;
+  background: var(--page-bg);
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  gap: 10px;
+  padding: 14px 12px;
+  position: relative;
+  font-size: 12px;
+}
+.sa-top { display: flex; align-items: center; justify-content: space-between; }
+.sa-pill {
+  font-size: 10.5px; font-weight: 900; color: var(--ink);
+  border: 2px solid var(--ink); border-radius: 999px;
+  padding: 3px 9px; box-shadow: 2px 2px 0 var(--ink);
+}
+.sa-count { font-size: 10.5px; font-weight: 800; color: var(--body); }
+.sa-card {
+  border: 2.5px solid var(--ink); border-radius: 14px;
+  background: var(--card-bg); box-shadow: 3px 3px 0 var(--ink);
+  padding: 10px;
+}
+
+/* -- Dashboard mock -- */
+.sa-ring {
+  position: relative; width: 58px; height: 58px; border-radius: 50%;
+  display: grid; place-items: center; float: left; margin-right: 10px;
+}
+.sa-ring i {
+  position: absolute; inset: 0; border-radius: 50%;
+  background: conic-gradient(var(--yellow) var(--sa-ring, 40%), var(--surface) 0);
+  border: 2.5px solid var(--ink);
+  animation: sa-ring-fill 6s ease-in-out infinite;
+}
+.sa-ring::after {
+  content: ""; position: absolute; inset: 9px; border-radius: 50%;
+  background: var(--card-bg); border: 2px solid var(--ink);
+}
+.sa-ring span { position: relative; z-index: 1; font-weight: 900; font-size: 14px; }
+@keyframes sa-ring-fill {
+  0%, 10% { --sa-ring: 30%; } 45%, 70% { --sa-ring: 74%; } 100% { --sa-ring: 30%; }
+}
+@property --sa-ring { syntax: "<percentage>"; inherits: false; initial-value: 30%; }
+.sa-bars { overflow: hidden; padding-top: 2px; }
+.sa-bars small { display: block; font-size: 9.5px; font-weight: 800; color: var(--body); margin: 2px 0; }
+.sa-bar {
+  height: 9px; border: 2px solid var(--ink); border-radius: 999px;
+  background: var(--surface); overflow: hidden;
+}
+.sa-bar i { display: block; height: 100%; width: 40%; }
+.sa-fill-mint { background: var(--mint); animation: sa-bar-a 6s ease-in-out infinite; }
+.sa-fill-blue { background: var(--blue); animation: sa-bar-b 6s ease-in-out infinite; }
+@keyframes sa-bar-a { 0%, 10% { width: 32%; } 45%, 70% { width: 68%; } 100% { width: 32%; } }
+@keyframes sa-bar-b { 0%, 14% { width: 45%; } 50%, 70% { width: 82%; } 100% { width: 45%; } }
+.sa-shelf { display: flex; gap: 6px; margin-bottom: 8px; }
+.sa-book {
+  flex: 1; position: relative;
+  border: 2px solid var(--ink); border-radius: 8px;
+  background: var(--surface);
+  font-size: 10px; font-weight: 900; text-align: center;
+  padding: 12px 0 6px;
+  border-left: 7px solid var(--orange);
+}
+.sa-book.sa-done { background: var(--mint); }
+.sa-book.sa-reading { background: var(--orange); animation: sa-book-pop 6s ease-in-out infinite; }
+.sa-book.sa-reading b {
+  position: absolute; top: -2px; right: 6px; width: 8px; height: 15px;
+  background: var(--danger, #E03131); border: 1.5px solid var(--ink);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 72%, 0 100%);
+  animation: sa-ribbon 6s ease-in-out infinite;
+}
+@keyframes sa-book-pop { 0%, 55%, 100% { transform: none; } 60% { transform: translateY(-3px); } 66% { transform: none; } }
+@keyframes sa-ribbon { 0%, 55%, 100% { transform: none; } 60% { transform: translateY(2px); } 66% { transform: none; } }
+.sa-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; }
+.sa-cell {
+  border: 2px solid var(--ink); border-radius: 7px;
+  background: var(--surface); text-align: center;
+  font-size: 9px; font-weight: 800; padding: 5px 0;
+}
+.sa-cur { background: var(--orange); }
+.sa-c1, .sa-c2, .sa-c3 { animation: sa-cell-done 6s ease-in-out infinite; }
+.sa-c2 { animation-delay: 0.5s; }
+.sa-c3 { animation-delay: 1s; }
+@keyframes sa-cell-done {
+  0%, 8% { background: var(--surface); }
+  16%, 88% { background: var(--mint); }
+  100% { background: var(--surface); }
+}
+.sa-weak {
+  margin-top: auto;
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11.5px; font-weight: 800;
+}
+.sa-weak span:first-child { margin-right: auto; }
+.sa-weak b { color: var(--coral); }
+.sa-cta {
+  border: 2.5px solid var(--ink); border-radius: 12px;
+  background: var(--yellow); box-shadow: 3px 3px 0 var(--ink);
+  font-weight: 900; font-size: 12px; text-align: center; padding: 9px 0;
+  animation: sa-cta-press 6s ease-in-out infinite;
+}
+@keyframes sa-cta-press {
+  0%, 74%, 82%, 100% { transform: none; box-shadow: 3px 3px 0 var(--ink); }
+  78% { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+}
+
+/* -- Card swipe mock -- */
+.sa-stage { position: relative; flex: 1; min-height: 0; }
+.sa-word {
+  position: absolute; inset: 6px 4px;
+  border: 2.5px solid var(--ink); border-radius: 16px;
+  background: var(--card-bg); box-shadow: 4px 4px 0 var(--ink);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 4px; text-align: center; overflow: hidden;
+}
+.sa-word h4 { font-size: 19px; font-weight: 900; }
+.sa-word p { font-size: 12px; font-weight: 800; color: var(--body); }
+.sa-word em { font-size: 10px; color: var(--body); font-style: normal; opacity: 0.7; }
+.sa-back { transform: scale(0.94) translateY(10px); background: var(--surface); }
+.sa-tint {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  font-weight: 900; font-size: 15px; color: var(--ink); opacity: 0;
+}
+.sa-tint-mint { background: color-mix(in srgb, var(--mint) 62%, transparent); }
+.sa-tint-coral { background: color-mix(in srgb, var(--coral) 62%, transparent); }
+.sa-cardA { animation: sa-swipe-a 9s ease-in-out infinite; }
+.sa-cardB { animation: sa-swipe-b 9s ease-in-out infinite; }
+.sa-cardA .sa-tint { animation: sa-tint-a 9s ease-in-out infinite; }
+.sa-cardB .sa-tint { animation: sa-tint-b 9s ease-in-out infinite; }
+@keyframes sa-swipe-a {
+  0%, 30% { transform: none; opacity: 1; z-index: 3; }
+  42% { transform: translateX(150%) rotate(14deg); opacity: 1; z-index: 3; }
+  42.5% { transform: scale(0.94) translateY(10px); opacity: 0; z-index: 1; }
+  50%, 94% { transform: scale(0.94) translateY(10px); opacity: 1; z-index: 1; }
+  100% { transform: none; opacity: 1; z-index: 3; }
+}
+@keyframes sa-swipe-b {
+  0%, 44% { transform: scale(0.94) translateY(10px); opacity: 1; z-index: 2; }
+  52%, 75% { transform: none; z-index: 3; opacity: 1; }
+  87% { transform: translateX(-150%) rotate(-14deg); opacity: 1; z-index: 3; }
+  87.5% { transform: scale(0.94) translateY(10px); opacity: 0; z-index: 1; }
+  94%, 100% { transform: scale(0.94) translateY(10px); opacity: 1; z-index: 2; }
+}
+@keyframes sa-tint-a { 0%, 28% { opacity: 0; } 38%, 42% { opacity: 1; } 42.5%, 100% { opacity: 0; } }
+@keyframes sa-tint-b { 0%, 73% { opacity: 0; } 83%, 87% { opacity: 1; } 87.5%, 100% { opacity: 0; } }
+.sa-btns { display: flex; gap: 8px; }
+.sa-btn {
+  flex: 1; text-align: center; font-weight: 900; font-size: 12px;
+  border: 2.5px solid var(--ink); border-radius: 12px;
+  padding: 8px 0; box-shadow: 3px 3px 0 var(--ink);
+}
+.sa-no { background: var(--pink); animation: sa-press-no 9s ease-in-out infinite; }
+.sa-ok { background: var(--lime); animation: sa-press-ok 9s ease-in-out infinite; }
+@keyframes sa-press-ok {
+  0%, 30%, 44%, 100% { transform: none; box-shadow: 3px 3px 0 var(--ink); background: var(--lime); }
+  36% { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); background: var(--mint); }
+}
+@keyframes sa-press-no {
+  0%, 76%, 90%, 100% { transform: none; box-shadow: 3px 3px 0 var(--ink); background: var(--pink); }
+  82% { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); background: var(--coral); }
+}
+
+/* -- 3-second quiz mock -- */
+.sa-qbar {
+  height: 12px; border: 2.5px solid var(--ink); border-radius: 999px;
+  background: var(--surface); overflow: hidden; flex-shrink: 0;
+}
+.sa-qbar i { display: block; height: 100%; animation: sa-drain 5s linear infinite; }
+@keyframes sa-drain {
+  0% { width: 100%; background: var(--mint); }
+  19.9% { background: var(--mint); }
+  20% { background: var(--yellow); }
+  39.9% { background: var(--yellow); }
+  40% { background: var(--coral); }
+  60%, 75.9% { width: 0%; background: var(--coral); }
+  76%, 100% { width: 100%; background: var(--mint); }
+}
+.sa-qmeta { display: flex; justify-content: space-between; align-items: center; font-size: 11px; font-weight: 800; color: var(--body); }
+.sa-qword {
+  margin-top: auto;
+  border: 2.5px solid var(--ink); border-radius: 14px;
+  background: var(--card-bg); box-shadow: 3px 3px 0 var(--ink);
+  text-align: center; padding: 16px 8px;
+}
+.sa-qword small { display: block; font-size: 10px; font-weight: 800; color: var(--body); margin-bottom: 4px; }
+.sa-qword h4 { font-size: 20px; font-weight: 900; }
+.sa-opts { display: flex; flex-direction: column; gap: 7px; margin-top: auto; }
+.sa-opt {
+  position: relative;
+  border: 2.5px solid var(--ink); border-radius: 11px;
+  background: var(--card-bg); box-shadow: 3px 3px 0 var(--ink);
+  font-size: 12px; font-weight: 800; padding: 8px 12px;
+}
+.sa-opt b { position: absolute; right: 10px; opacity: 0; font-weight: 900; }
+.sa-correct { animation: sa-pick 5s ease-in-out infinite; }
+.sa-correct b { animation: sa-pick-check 5s ease-in-out infinite; }
+@keyframes sa-pick {
+  0%, 42% { transform: none; box-shadow: 3px 3px 0 var(--ink); background: var(--card-bg); }
+  46%, 70% { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); background: var(--mint); }
+  74%, 100% { transform: none; box-shadow: 3px 3px 0 var(--ink); background: var(--card-bg); }
+}
+@keyframes sa-pick-check { 0%, 44% { opacity: 0; } 48%, 70% { opacity: 1; } 74%, 100% { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .shot-anim *, .shot-anim *::before, .shot-anim *::after { animation: none !important; }
+}
+
 /* GIF hover-play: still frame by default, GIF swaps in on hover (JS) */
 .play-badge {
   display: inline-block;

@@ -1,27 +1,9 @@
-# 스크린샷 / GIF 자산
+# assets/
 
-## 호버 재생 GIF (권장)
+스크린샷 섹션은 현재 **CSS 키프레임 기반 애니메이션 목업**(index.html `.shot-anim` + styles.css `sa-*`)으로
+동작하므로 이미지 파일이 필요 없습니다.
 
-정지 화면(PNG) + GIF 한 쌍을 넣고 `docs/index.html`의 `.shot-ph` div를 교체하세요.
-JS가 자동으로 **마우스 호버 시 GIF 재생, 벗어나면 정지 화면 복귀**를 처리합니다:
-
-```html
-<!-- 교체 전 -->
-<div class="shot-ph">📱<br />대시보드<br />GIF 준비 중 ...</div>
-
-<!-- 교체 후 -->
-<img data-still="assets/still-dashboard.png"
-     data-gif="assets/demo-dashboard.gif"
-     src="assets/still-dashboard.png" alt="대시보드 — 책장 진도" />
-```
-
-권장 파일명:
-- still-dashboard.png / demo-dashboard.gif
-- still-cards.png / demo-cards.gif
-- still-quiz.png / demo-quiz.gif
-
-권장 사양: 시뮬레이터 화면 녹화 → GIF 변환(880px 폭, 12~15fps, 5초 내외, 3MB 이하).
-
-## 정적 스크린샷만 쓸 경우
-
-`data-*` 속성 없이 `<img src="assets/screen-dashboard.png">` 만 넣으면 됩니다.
+실기기 캡처(GIF/스틸)로 교체하고 싶다면:
+1. 이 폴더에 `still-*.png` / `demo-*.gif`를 넣고
+2. index.html의 `.shot-anim` div를 `<img>`로 교체하세요.
+   (기존 hover-play JS는 제거됨 — 필요 시 git 히스토리 참고)
