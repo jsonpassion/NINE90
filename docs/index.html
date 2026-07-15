@@ -12,6 +12,16 @@
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+<script>document.documentElement.classList.add('js');</script>
+
+<!-- Soft drifting aurora + grain (atmosphere behind everything) -->
+<div class="aurora" aria-hidden="true">
+  <span class="blob b-coral"></span>
+  <span class="blob b-mint"></span>
+  <span class="blob b-lav"></span>
+  <span class="blob b-yellow"></span>
+</div>
+<div class="grain" aria-hidden="true"></div>
 
 <!-- ======================= NAV ======================= -->
 <nav class="nav">
@@ -32,13 +42,13 @@
 
 <!-- ======================= HERO ======================= -->
 <header class="hero wrap" id="download">
-  <div>
+  <div data-reveal="up">
     <span class="nb-tag" style="background: var(--pink); margin-bottom: 18px;">TOEIC® 시험 대비 · 회독 특화</span>
     <h1>보고, 또 보고.<br /><span class="hl">회독</span> 으로 끝내는<br />990 영단어</h1>
     <p class="sub">
       한 번 본 단어는 잊혀도, 열 번 본 단어는 남습니다.
-      NINE90은 모르는 단어에 <strong>집요하게</strong> 다시 노출시키는
-      회독 학습 앱입니다. 로그인 없이, 기록은 iCloud로.
+      모르는 단어를 <strong>외울 때까지</strong> 다시 꺼내 보여주는
+      회독 학습 앱. 로그인 없이, 기록은 iCloud로 영원히.
     </p>
     <div class="kr-brand" aria-label="990을 향해 구구공!">
       <span class="kk" style="background: var(--mint);">ㄱ</span>
@@ -57,6 +67,8 @@
   </div>
 
   <!-- CSS-drawn app preview (교체 전 임시 목업) -->
+  <div class="hero-visual" data-reveal="zoom">
+  <div class="glow" aria-hidden="true"></div>
   <div class="phone" aria-hidden="true">
     <div class="notch"></div>
     <div class="mock-row score">
@@ -79,7 +91,53 @@
     </div>
     <div class="mock-row" style="background: var(--surface);">모름 단어 12개 · 모아서 정리 <span class="mock-chip" style="background: var(--coral);">복습</span></div>
   </div>
+  </div>
 </header>
+
+<!-- ======================= STORY — scroll-linked card fan ======================= -->
+<section class="fan" id="story">
+  <div class="fan-inner">
+    <div class="fan-copy">
+      <span class="nb-tag" style="background: var(--mint);">회독 (回讀) · 돌려 읽기</span>
+      <h2>한 번 본 단어는 잊혀도,<br /><em>열 번 본 단어</em>는 남습니다</h2>
+      <p>모르는 단어를 덱 맨 위로 계속 끌어올립니다. 알 때까지, 몇 번이고.</p>
+    </div>
+    <div class="fan-stage">
+      <div class="fan-deck" id="fanDeck">
+        <article class="fan-card" style="--a:-26deg; --x:-340px; --y:34px;">
+          <div class="fc-strip" style="background: var(--coral);"></div>
+          <b>expedite</b><span>신속히 처리하다</span><i>/ˈekspədaɪt/</i>
+          <span class="fc-badge" style="background: var(--coral);">✕ 모름</span>
+        </article>
+        <article class="fan-card" style="--a:-15deg; --x:-196px; --y:8px;">
+          <div class="fc-strip" style="background: var(--blue);"></div>
+          <b>comply</b><span>준수하다</span><i>/kəmˈplaɪ/</i>
+          <span class="fc-badge" style="background: var(--blue);">복습</span>
+        </article>
+        <article class="fan-card" style="--a:-5deg; --x:-66px; --y:-6px;">
+          <div class="fc-strip" style="background: var(--mint);"></div>
+          <b>garner</b><span>얻다, 모으다</span><i>/ˈɡɑːrnər/</i>
+          <span class="fc-badge" style="background: var(--mint);">✓ 알아요</span>
+        </article>
+        <article class="fan-card" style="--a:5deg; --x:66px; --y:-6px;">
+          <div class="fc-strip" style="background: var(--lavender);"></div>
+          <b>eloquence</b><span>능변, 웅변</span><i>/ˈeləkwəns/</i>
+          <span class="fc-badge" style="background: var(--lavender);">복습</span>
+        </article>
+        <article class="fan-card" style="--a:15deg; --x:196px; --y:8px;">
+          <div class="fc-strip" style="background: var(--yellow);"></div>
+          <b>meticulous</b><span>꼼꼼한</span><i>/məˈtɪkjələs/</i>
+          <span class="fc-badge" style="background: var(--yellow);">3초 퀴즈</span>
+        </article>
+        <article class="fan-card" style="--a:26deg; --x:340px; --y:34px;">
+          <div class="fc-strip" style="background: var(--pink);"></div>
+          <b>warranty</b><span>품질 보증</span><i>/ˈwɔːrənti/</i>
+          <span class="fc-badge" style="background: var(--pink);">✓ 알아요</span>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ======================= HOW IT WORKS ======================= -->
 <section id="how">
@@ -414,6 +472,70 @@
   }, { rootMargin: '-40% 0px -55% 0px' });
 
   targets.forEach(function (t) { observer.observe(t); });
+})();
+
+/* ---------- Scroll reveals: tag groups, animate them in on enter ---------- */
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+
+  // Assign reveal variant + stagger index without touching the HTML.
+  function tag(sel, variant, perRow) {
+    var els = Array.prototype.slice.call(document.querySelectorAll(sel));
+    els.forEach(function (el, i) {
+      el.classList.add('reveal');
+      var v = typeof variant === 'function' ? variant(i) : variant;
+      el.classList.add(v);
+      el.style.setProperty('--i', perRow ? (i % perRow) : i);
+    });
+    return els;
+  }
+
+  var groups = [].concat(
+    tag('.sec-head', 'r-up'),
+    tag('.step', 'r-up', 4),
+    // features deal in from alternating sides, like a hand of cards
+    tag('.feature', function (i) { return i % 2 ? 'r-right' : 'r-left'; }, 3),
+    tag('.level', 'r-up', 4),
+    tag('.shots > div', 'r-up', 3),
+    tag('.price-card', 'r-up', 2),
+    tag('.faq details', 'r-up', 1)
+  );
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.15 });
+
+  groups.forEach(function (el) { io.observe(el); });
+})();
+
+/* ---------- Signature: scroll-linked VOCA card fan ---------- */
+(function () {
+  var section = document.getElementById('story');
+  var deck = document.getElementById('fanDeck');
+  if (!section || !deck) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var rect = section.getBoundingClientRect();
+    var vh = window.innerHeight;
+    // 0 while the sticky stage first pins, 1 as the track scrolls past.
+    var travel = rect.height - vh;
+    var p = travel > 0 ? (-rect.top) / travel : 0;
+    p = Math.max(0, Math.min(1, p));
+    // ease so the spread feels like it "settles" open
+    var eased = 1 - Math.pow(1 - p, 2);
+    deck.style.setProperty('--p', eased.toFixed(4));
+  }
+  function onScroll() {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
 })();
 
 /* ---------- 3초 퀴즈 맛보기 (앱의 WordQuizView와 같은 규칙) ---------- */
