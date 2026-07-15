@@ -36,7 +36,7 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; background: var(--page-bg); }
 
 /* Anchored sections land BELOW the sticky nav, with breathing room —
    otherwise their headings hide under the bar. */
@@ -45,7 +45,7 @@ section[id], header[id] { scroll-margin-top: 84px; }
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
     "Pretendard", "Segoe UI", "Noto Sans KR", sans-serif;
-  background: var(--page-bg);
+  background: transparent;
   color: var(--ink);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -872,4 +872,154 @@ body.en .lang-ko { display: none; }
   .grid { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr; }
   .policy-card { padding: 28px 20px; }
+}
+
+/* ============================================================
+   ATMOSPHERE + SCROLL CHOREOGRAPHY (2026-07 refresh)
+   NB DNA kept intact; mood layered on via a soft drifting aurora,
+   scroll-triggered reveals ("dealt" cards), and one signature
+   scroll-linked VOCA card fan. All self-contained, no libraries.
+   ============================================================ */
+
+:root {
+  --grad-warm:  linear-gradient(135deg, var(--coral), var(--pink));
+  --grad-cool:  linear-gradient(135deg, var(--blue), var(--lavender));
+  --grad-fresh: linear-gradient(135deg, var(--mint), var(--lime));
+}
+
+/* ---- Soft drifting aurora (warm, low opacity, behind content) ---- */
+.aurora { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.aurora .blob {
+  position: absolute;
+  width: 48vw; height: 48vw; max-width: 580px; max-height: 580px;
+  border-radius: 50%;
+  filter: blur(72px);
+  opacity: 0.30;
+  animation: drift 24s ease-in-out infinite;
+}
+.b-coral  { background: var(--coral);    top: -10%;  left: -6%;   animation-delay: -2s; }
+.b-mint   { background: var(--mint);     top: 26%;   right: -12%; animation-delay: -9s; }
+.b-lav    { background: var(--lavender); bottom: -16%; left: 10%;  animation-delay: -15s; }
+.b-yellow { background: var(--yellow);   top: 58%;   left: 42%;   animation-delay: -5s; opacity: 0.22; }
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(7%, 9%) scale(1.14); }
+  66%      { transform: translate(-6%, -7%) scale(0.92); }
+}
+
+/* faint grain for tactile texture */
+.grain {
+  position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 170px 170px;
+}
+
+/* ---- Scroll reveals (JS tags elements; CSS animates them in) ---- */
+html.js .reveal {
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: opacity 0.6s cubic-bezier(0.2, 0.7, 0.2, 1),
+              transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: calc(var(--i, 0) * 80ms);
+}
+html.js .reveal.r-up    { transform: translateY(34px); }
+html.js .reveal.r-left  { transform: translateX(-48px) rotate(-3deg); }
+html.js .reveal.r-right { transform: translateX(48px) rotate(3deg); }
+html.js .reveal.r-zoom  { transform: scale(0.9); }
+html.js .reveal.in      { opacity: 1; transform: none; }
+
+/* ---- Hero visual: glow behind the phone + gentle float ---- */
+.hero-visual { position: relative; display: grid; place-items: center; }
+.hero-visual .glow {
+  position: absolute; width: 120%; height: 120%;
+  background: var(--grad-warm);
+  filter: blur(60px); opacity: 0.28; border-radius: 50%;
+  z-index: -1;
+  animation: glow-pulse 7s ease-in-out infinite;
+}
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.22; transform: scale(1); }
+  50%      { opacity: 0.36; transform: scale(1.06); }
+}
+.hero-visual .phone { animation: phone-float 6s ease-in-out infinite; }
+@keyframes phone-float {
+  0%, 100% { transform: translateY(0) rotate(2deg); }
+  50%      { transform: translateY(-10px) rotate(2deg); }
+}
+.hero-visual .phone:hover { animation: phone-shake 0.55s ease-in-out; }
+
+/* ============================================================
+   SIGNATURE — scroll-linked VOCA card fan
+   Cards start stacked and spread into an arc as you scroll the
+   tall track. Progress (--p, 0→1) is driven by JS and inherited
+   by each card, which reads its own target angle/offset.
+   ============================================================ */
+
+.fan { position: relative; height: 260vh; padding: 0; }
+.fan-inner {
+  position: sticky; top: 0;
+  height: 100vh;
+  display: grid; grid-template-rows: auto 1fr;
+  align-content: center;
+  overflow: hidden;
+}
+.fan-copy { text-align: center; padding: 10vh 20px 0; max-width: 720px; margin: 0 auto; }
+.fan-copy h2 {
+  font-size: clamp(28px, 4.4vw, 46px);
+  font-weight: 900; letter-spacing: -1px; line-height: 1.22;
+  margin: 16px 0 12px;
+}
+.fan-copy h2 em {
+  font-style: normal;
+  background: var(--grad-warm);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.fan-copy p { color: var(--body); font-size: 17px; font-weight: 600; }
+
+.fan-stage { position: relative; }
+.fan-deck {
+  position: absolute; inset: 0;
+  display: grid; grid-template: 1fr / 1fr; place-items: center;
+  --p: 0;                       /* JS-driven; default 0 (stacked) */
+  transform: scale(var(--fan-scale, 1));
+}
+.fan-card {
+  grid-area: 1 / 1;             /* all cards share one cell → centered stack */
+  width: 190px; min-height: 250px;
+  background: var(--card-bg);
+  border: var(--bw) solid var(--ink);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-md);
+  padding: 20px 18px;
+  display: flex; flex-direction: column; gap: 8px;
+  transform-origin: 50% 150%;   /* shared low pivot → clean playing-card fan */
+  transform:
+    translateX(calc(var(--x) * var(--p)))
+    translateY(calc(var(--y) * var(--p)))
+    rotate(calc(var(--a) * var(--p)));
+}
+.fan-card .fc-strip { height: 7px; border-radius: 999px; margin: -4px -4px 6px; }
+.fan-card b  { font-size: 24px; font-weight: 900; letter-spacing: -0.5px; }
+.fan-card span { font-size: 16px; font-weight: 800; color: var(--body); }
+.fan-card i  { font-size: 12px; font-style: normal; color: var(--body); opacity: 0.65; }
+.fan-card .fc-badge {
+  margin-top: auto;
+  align-self: flex-start;
+  font-size: 11px; font-weight: 900;
+  padding: 3px 10px; border: 2px solid var(--ink); border-radius: 999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora .blob, .hero-visual .glow, .hero-visual .phone { animation: none !important; }
+  html.js .reveal { opacity: 1 !important; transform: none !important; }
+  .fan-deck { --p: 1; }         /* show fanned + static */
+}
+
+@media (max-width: 860px) {
+  .fan { height: 200vh; }
+  .fan-deck { --fan-scale: 0.6; }
+  .fan-copy { padding-top: 8vh; }
+}
+@media (max-width: 540px) {
+  .fan-deck { --fan-scale: 0.44; }
 }
