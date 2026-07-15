@@ -94,6 +94,21 @@
   </div>
 </header>
 
+<!-- ======================= CINEMATIC FILM BAND — 회독 ======================= -->
+<section class="cinema" id="film" aria-label="회독 브랜드 필름">
+  <video autoplay muted loop playsinline preload="metadata" poster="assets/video/hero-fan.jpg">
+    <source src="assets/video/hero-fan.mp4" type="video/mp4" />
+  </video>
+  <div class="scrim"></div>
+  <div class="cinema-inner">
+    <div class="cinema-copy">
+      <span class="kicker">회독 (回讀) · 돌려 읽기</span>
+      <h2>보고, 또 보고.<br /><span class="film-hl">남을 때까지.</span></h2>
+      <p>한 장씩 넘기고, 처음으로 돌아가 다시 넘깁니다. 모르는 단어가 익숙해질 때까지.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ======================= STORY — scroll-linked card fan ======================= -->
 <section class="fan" id="story">
   <div class="fan-inner">
@@ -212,14 +227,8 @@
       <div class="feature">
         <div class="strip" style="background: var(--lime);"></div>
         <div class="icon" style="background: var(--lime);">🔊</div>
-        <h3>원어민 발음 읽어주기</h3>
-        <p>탭 한 번이면 단어도, 예문도 읽어줍니다. 눈으로 한 번, 귀로 한 번 — 두 번 새겨집니다.</p>
-      </div>
-      <div class="feature">
-        <div class="strip" style="background: var(--yellow);"></div>
-        <div class="icon" style="background: var(--yellow);">✏️</div>
-        <h3>기억에 남는 예문</h3>
-        <p>모든 단어에 발음기호, 어원·연상 힌트, 비즈니스 예문과 번역까지. 문장으로 외우면 오래갑니다.</p>
+        <h3>카드 한 장에 전부</h3>
+        <p>발음기호·어원 힌트·비즈니스 예문·번역, 그리고 원어민 TTS까지. 눈으로 한 번, 귀로 한 번 새깁니다.</p>
       </div>
       <div class="feature">
         <div class="strip" style="background: var(--mint);"></div>
@@ -372,6 +381,25 @@
   </div>
 </section>
 
+<!-- ======================= CINEMATIC CLOSING BAND ======================= -->
+<section class="cinema center" id="closing" aria-label="지금 시작">
+  <video autoplay muted loop playsinline preload="metadata" poster="assets/video/learner.jpg">
+    <source src="assets/video/learner.mp4" type="video/mp4" />
+  </video>
+  <div class="scrim"></div>
+  <div class="cinema-inner">
+    <div class="cinema-copy">
+      <span class="kicker">하루 5분</span>
+      <h2>오늘 외운 한 단어가,<br /><span class="film-hl">990까지 남습니다.</span></h2>
+      <p>지하철에서, 카페에서, 자기 전에. 짧게 자주, 외울 때까지.</p>
+      <div class="cinema-ctas">
+        <a class="nb-btn" href="#download">무료로 시작하기</a>
+        <a class="nb-btn secondary" href="#pricing">가격 보기</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ======================= PRICING ======================= -->
 <section id="pricing">
   <div class="wrap">
@@ -508,6 +536,23 @@
   }, { rootMargin: '0px 0px -12% 0px', threshold: 0.15 });
 
   groups.forEach(function (el) { io.observe(el); });
+})();
+
+/* ---------- Cinematic bands: pause off-screen, honor reduced-motion ---------- */
+(function () {
+  var vids = Array.prototype.slice.call(document.querySelectorAll('.cinema video'));
+  if (!vids.length) return;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) { vids.forEach(function (v) { v.pause(); v.removeAttribute('autoplay'); }); return; }
+  if (!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      var v = e.target;
+      if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+      else { v.pause(); }
+    });
+  }, { threshold: 0.2 });
+  vids.forEach(function (v) { io.observe(v); });
 })();
 
 /* ---------- Signature: scroll-linked VOCA card fan ---------- */

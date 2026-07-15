@@ -36,7 +36,7 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; background: var(--page-bg); }
+html { scroll-behavior: smooth; background: var(--page-bg); overflow-x: clip; }
 
 /* Anchored sections land BELOW the sticky nav, with breathing room —
    otherwise their headings hide under the bar. */
@@ -49,6 +49,9 @@ body {
   color: var(--ink);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  /* Clip decorative bleed (hero glow, aurora blobs) without creating a
+     scroll container — `clip` (unlike hidden) keeps position:sticky working. */
+  overflow-x: clip;
 }
 
 .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
@@ -1019,7 +1022,89 @@ html.js .reveal.in      { opacity: 1; transform: none; }
   .fan { height: 200vh; }
   .fan-deck { --fan-scale: 0.6; }
   .fan-copy { padding-top: 8vh; }
+  /* Sideways reveals would push cards off a narrow viewport (h-scroll) —
+     fall back to a vertical reveal on tablet/mobile. */
+  html.js .reveal.r-left, html.js .reveal.r-right { transform: translateY(30px); }
 }
 @media (max-width: 540px) {
   .fan-deck { --fan-scale: 0.44; }
+}
+
+/* ============================================================
+   CINEMATIC VIDEO BANDS (full-bleed brand film moments)
+   Video replaces decorative gaps; a scrim keeps copy legible.
+   ============================================================ */
+.cinema {
+  position: relative;
+  min-height: 62vh;
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+  border-top: var(--bw) solid var(--ink);
+  border-bottom: var(--bw) solid var(--ink);
+  padding: 0;
+}
+.cinema video, .cinema .cinema-poster {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.cinema .cinema-poster { background-size: cover; background-position: center; }
+/* Scrim: darker on the copy side so white text always reads */
+.cinema .scrim {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(90deg,
+    rgba(20,20,20,0.72) 0%, rgba(20,20,20,0.5) 42%, rgba(20,20,20,0.12) 100%);
+}
+.cinema.center .scrim {
+  background: radial-gradient(120% 100% at 50% 50%,
+    rgba(20,20,20,0.28) 0%, rgba(20,20,20,0.62) 100%);
+}
+.cinema .cinema-inner {
+  position: relative; z-index: 2;
+  max-width: 1040px; margin: 0 auto; width: 100%;
+  padding: 56px 20px;
+}
+.cinema.center .cinema-inner { text-align: center; }
+.cinema .cinema-copy { max-width: 560px; }
+.cinema.center .cinema-copy { max-width: 720px; margin: 0 auto; }
+.cinema .kicker {
+  display: inline-block; margin-bottom: 16px;
+  font-size: 13px; font-weight: 900; letter-spacing: 0.5px;
+  color: var(--ink);
+  background: var(--yellow);
+  border: 2.5px solid var(--ink);
+  border-radius: 999px; padding: 5px 14px;
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.35);
+}
+.cinema h2 {
+  font-size: clamp(30px, 5vw, 52px);
+  font-weight: 900; line-height: 1.18; letter-spacing: -1px;
+  color: #fff;
+  text-shadow: 0 3px 18px rgba(0,0,0,0.55), 0 1px 3px rgba(0,0,0,0.6);
+}
+.cinema h2 .film-hl {
+  background: var(--grad-warm);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  text-shadow: none;
+}
+.cinema p {
+  margin-top: 16px; font-size: 18px; font-weight: 600;
+  color: rgba(255,255,255,0.92);
+  text-shadow: 0 2px 12px rgba(0,0,0,0.6);
+  max-width: 480px;
+}
+.cinema.center p { margin-left: auto; margin-right: auto; }
+.cinema .cinema-ctas { margin-top: 26px; display: flex; gap: 14px; flex-wrap: wrap; }
+.cinema.center .cinema-ctas { justify-content: center; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cinema video { display: none; }         /* poster only, no autoplay */
+}
+@media (max-width: 640px) {
+  .cinema { min-height: 72vh; }
+  .cinema .scrim { background: linear-gradient(180deg, rgba(20,20,20,0.35) 0%, rgba(20,20,20,0.72) 100%); }
+  .cinema.center .scrim { background: linear-gradient(180deg, rgba(20,20,20,0.4) 0%, rgba(20,20,20,0.7) 100%); }
+  .cinema .cinema-inner { padding: 44px 20px; }
 }
