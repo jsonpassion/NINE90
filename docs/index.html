@@ -381,6 +381,24 @@
   </div>
 </section>
 
+<!-- ======================= BRAND STORY FILM (세로 광고 재사용) ======================= -->
+<section id="story-film" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>잊는 건, 당신 탓이 아닙니다</h2>
+      <p>10초면 충분합니다. 소리 없이, 자막으로.</p>
+    </div>
+    <div class="reel-wrap">
+      <div class="reel">
+        <video autoplay muted loop playsinline preload="none" poster="assets/video/ad-story.jpg"
+               aria-label="어제 외운 단어가 오늘 기억나지 않는 이유를 담은 10초 브랜드 영상">
+          <source src="assets/video/ad-story.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ======================= CINEMATIC CLOSING BAND ======================= -->
 <section class="cinema center" id="closing" aria-label="지금 시작">
   <video autoplay muted loop playsinline preload="metadata" poster="assets/video/learner.jpg">
@@ -526,7 +544,8 @@
     tag('.level', 'r-up', 4),
     tag('.shots > div', 'r-up', 3),
     tag('.price-card', 'r-up', 2),
-    tag('.faq details', 'r-up', 1)
+    tag('.faq details', 'r-up', 1),
+    tag('.reel-wrap', 'r-zoom')
   );
 
   var io = new IntersectionObserver(function (entries) {
@@ -540,7 +559,7 @@
 
 /* ---------- Cinematic bands: pause off-screen, honor reduced-motion ---------- */
 (function () {
-  var vids = Array.prototype.slice.call(document.querySelectorAll('.cinema video'));
+  var vids = Array.prototype.slice.call(document.querySelectorAll('.cinema video, .reel video'));
   if (!vids.length) return;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduce) { vids.forEach(function (v) { v.pause(); v.removeAttribute('autoplay'); }); return; }

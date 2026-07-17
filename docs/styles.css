@@ -1035,6 +1035,27 @@ html.js .reveal.in      { opacity: 1; transform: none; }
    CINEMATIC VIDEO BANDS (full-bleed brand film moments)
    Video replaces decorative gaps; a scrim keeps copy legible.
    ============================================================ */
+/* Brand story film — the 9:16 ad, framed like the hero phone. Its burned-in
+   captions carry the narrative, so the section copy above stays minimal. */
+.reel-wrap { display: grid; place-items: center; }
+.reel {
+  width: 300px;
+  max-width: 82vw;
+  aspect-ratio: 9 / 16;
+  border: var(--bw) solid var(--ink);
+  border-radius: 28px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  background: var(--ink);
+  rotate: -1.5deg;
+  transition: rotate 0.25s ease, box-shadow 0.25s ease;
+}
+.reel:hover { rotate: 0deg; }
+.reel video { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (prefers-reduced-motion: reduce) {
+  .reel { rotate: 0deg; }
+}
+
 .cinema {
   position: relative;
   min-height: 62vh;
