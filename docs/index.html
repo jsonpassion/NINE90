@@ -66,9 +66,15 @@
     </div>
   </div>
 
-  <!-- CSS-drawn app preview (교체 전 임시 목업) -->
+  <!-- CSS-drawn app preview (교체 전 임시 목업) + 브랜드 필름 릴 -->
   <div class="hero-visual" data-reveal="zoom">
   <div class="glow" aria-hidden="true"></div>
+  <div class="reel" aria-hidden="false">
+    <video autoplay muted loop playsinline preload="metadata" poster="assets/video/ad-story.jpg"
+           aria-label="어제 외운 단어가 오늘 기억나지 않는 이유를 담은 10초 브랜드 영상">
+      <source src="assets/video/ad-story.mp4" type="video/mp4" />
+    </video>
+  </div>
   <div class="phone" aria-hidden="true">
     <div class="notch"></div>
     <div class="mock-row score">
@@ -381,24 +387,6 @@
   </div>
 </section>
 
-<!-- ======================= BRAND STORY FILM (세로 광고 재사용) ======================= -->
-<section id="story-film" class="alt">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>잊는 건, 당신 탓이 아닙니다</h2>
-      <p>10초면 충분합니다. 소리 없이, 자막으로.</p>
-    </div>
-    <div class="reel-wrap">
-      <div class="reel">
-        <video autoplay muted loop playsinline preload="none" poster="assets/video/ad-story.jpg"
-               aria-label="어제 외운 단어가 오늘 기억나지 않는 이유를 담은 10초 브랜드 영상">
-          <source src="assets/video/ad-story.mp4" type="video/mp4" />
-        </video>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ======================= CINEMATIC CLOSING BAND ======================= -->
 <section class="cinema center" id="closing" aria-label="지금 시작">
   <video autoplay muted loop playsinline preload="metadata" poster="assets/video/learner.jpg">
@@ -544,8 +532,7 @@
     tag('.level', 'r-up', 4),
     tag('.shots > div', 'r-up', 3),
     tag('.price-card', 'r-up', 2),
-    tag('.faq details', 'r-up', 1),
-    tag('.reel-wrap', 'r-zoom')
+    tag('.faq details', 'r-up', 1)
   );
 
   var io = new IntersectionObserver(function (entries) {
