@@ -148,15 +148,16 @@ body {
 }
 
 /* 990 = 구구공 = ㄱㄱㄱ — Korean nickname brand strip (hero) */
-.kr-brand { display: flex; align-items: center; gap: 8px; margin: 18px 0 28px; }
+.kr-brand { display: flex; align-items: center; gap: 11px; margin: 18px 0 28px; }
 .kk {
   display: grid;
   place-items: center;
+  flex: none;          /* keep the tiles square — flex was shrinking them to 41px wide */
   width: 44px;
   height: 44px;
   border: var(--bw) solid var(--ink);
   border-radius: 12px;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: 900;
   color: var(--ink);
   box-shadow: 4px 4px 0 var(--ink);
