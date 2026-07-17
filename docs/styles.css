@@ -864,8 +864,6 @@ body.en .lang-ko { display: none; }
   .kr-brand { justify-content: center; }
   .logo-kr { display: none; }
   .phone { rotate: 0deg; margin-top: 10px; }
-  /* One device is enough on a phone screen — the mock stays, the reel goes */
-  .reel { display: none; }
   .grid { grid-template-columns: 1fr 1fr; }
   .steps { grid-template-columns: 1fr 1fr; }
   .levels { grid-template-columns: 1fr 1fr; }
@@ -1051,7 +1049,7 @@ html.js .reveal.in      { opacity: 1; transform: none; }
   background: var(--ink);
   rotate: -7deg;
   translate: 0 26px;
-  margin-right: -52px;   /* fan under the phone's left edge */
+  margin-right: -20px;   /* just the edges touch — the film stays watchable */
   z-index: 0;
   transition: rotate 0.25s ease, translate 0.25s ease;
 }
@@ -1060,6 +1058,18 @@ html.js .reveal.in      { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
   .reel { rotate: -7deg; translate: 0 26px; }
   .reel:hover { rotate: -7deg; translate: 0 26px; }
+}
+/* Mobile: the hero stacks, so the reel drops below the phone mock, smaller.
+   (This block must stay AFTER the .reel base rules to win the cascade.) */
+@media (max-width: 860px) {
+  .hero-visual { flex-direction: column; }
+  .reel {
+    order: 2;
+    width: 176px;
+    margin: 22px 0 0;
+    translate: 0 0;
+  }
+  .reel:hover { translate: 0 0; }
 }
 
 .cinema {
