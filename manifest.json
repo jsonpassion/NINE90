@@ -1,13 +1,13 @@
 {
   "version": "c-080100015b9a",
-  "generated_at": "2026-07-10T15:30:35Z",
+  "generated_at": "2026-07-19T12:25:36Z",
   "schema_version": 1,
   "track": "toeic-990",
   "profile": {
     "target_score": 990,
     "daily_study_minutes": 5,
     "voca_review_rule": "hoedok-rounds",
-    "free_chapters": 3
+    "free_chapters": 10
   },
   "score_band_policy": {
     "version": "3.0",

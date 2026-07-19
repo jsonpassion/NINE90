@@ -39,9 +39,11 @@ PROFILE = {
     "target_score": 990,
     "daily_study_minutes": 5,
     "voca_review_rule": "hoedok-rounds",
-    # Chapters per band that stay free before the full-access purchase.
+    # Free chapters at the start of each band — a contiguous prefix, i.e.
+    # 권 1 (10 chapters = 100 words). The user finishes one whole book and
+    # one whole 회독 before the paywall.
     # Remote-configurable: the app reads this from the manifest profile.
-    "free_chapters": 3,
+    "free_chapters": 10,
 }
 
 
