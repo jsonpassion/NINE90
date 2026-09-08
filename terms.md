@@ -1,7 +1,7 @@
 # NINE90 이용약관 / Terms of Service
 
-**시행일:** 2026년 7월 9일
-**Effective Date:** July 9, 2026
+**시행일:** 2026년 9월 8일 (최초 시행 2026년 7월 9일)
+**Effective Date:** September 8, 2026 (first effective July 9, 2026)
 
 ---
 
@@ -14,13 +14,15 @@ NINE90(이하 "앱")은 토익(TOEIC®) 시험 대비 영어 어휘 학습을 �
 ### 2. 무료 이용 범위와 앱 내 구매
 
 - **무료 범위:** 사용자가 선택한 레벨의 **1권 전체(10챕터, 100단어)** 를 무료로 이용할 수 있습니다. 회독, 모름 단어 복습, 3초 퀴즈, 레벨 테스트 등 앱의 기능은 무료 범위 안에서 제한 없이 동작하며, 기능별 추가 결제는 없습니다.
-- **유료 범위:** 2권부터의 챕터를 이용하려면 전체 이용권 구매가 필요합니다. 구매 시 4개 레벨의 전체 콘텐츠(총 4,000단어)가 모두 열립니다.
+- **유료 범위:** 2권부터의 챕터를 이용하려면 이용권이 필요합니다. 이용권은 **연간 구독**, **월간 구독**, **평생 이용권** 중 하나이며, 어느 것이든 4개 레벨의 전체 콘텐츠(총 4,000단어)가 모두 열립니다. 무료 체험 기간은 제공하지 않습니다.
 - 무료로 열리는 챕터 수는 콘텐츠 구성에 따라 변경될 수 있으며, 변경 시 앱 내 표기를 기준으로 합니다. 이미 구매한 이용권의 범위는 축소되지 않습니다.
-- 전체 이용권은 1회 결제로 모든 레벨의 전체 챕터를 영구적으로 이용할 수 있는 비소모성(Non-Consumable) 상품입니다. 구독이 아니므로 자동 갱신되지 않으며, 추가 결제가 발생하지 않습니다.
+- **자동 갱신 구독(월간·연간):** 현재 구독 기간이 끝나기 24시간 전까지 해지하지 않으면 같은 기간과 같은 가격으로 자동 갱신되며, 갱신 대금은 기간 종료 전 24시간 이내에 사용자의 Apple 계정에 청구됩니다. 해지는 iOS 설정 › Apple 계정 › 구독에서 언제든 할 수 있고, 해지하더라도 이미 결제한 기간이 끝날 때까지 계속 이용할 수 있습니다. 앱을 삭제하는 것만으로는 구독이 해지되지 않습니다.
+- **평생 이용권:** 1회 결제로 영구적으로 이용하는 비소모성(Non-Consumable) 상품입니다. 자동 갱신되지 않으며 추가 결제가 발생하지 않습니다.
+- **가격 변경:** 구독 가격을 변경할 경우 Apple의 정책에 따라 사전에 고지하며, 인상된 가격은 기존 구독자의 동의 없이 적용되지 않습니다.
 - 판매 가격은 App Store에 표시된 금액을 기준으로 하며, 국가·환율·프로모션에 따라 다를 수 있습니다.
-- 결제는 사용자의 Apple ID 계정을 통해 처리되며, 별도의 회원가입이나 로그인은 필요하지 않습니다.
-- 구매 내역은 동일한 Apple ID로 로그인된 다른 기기 또는 앱 재설치 시 "구매 복원" 기능으로 복원할 수 있습니다.
-- 환불은 Apple App Store의 환불 정책을 따릅니다. 환불 요청은 [reportaproblem.apple.com](https://reportaproblem.apple.com) 에서 하실 수 있습니다.
+- 결제는 사용자의 Apple 계정을 통해 처리되며, 별도의 회원가입이나 로그인은 필요하지 않습니다.
+- 구매 내역은 동일한 Apple 계정으로 로그인된 다른 기기 또는 앱 재설치 시 "구매 복원" 기능으로 복원할 수 있습니다.
+- 환불은 Apple App Store의 환불 정책을 따르며, 구독 환불 역시 동일합니다. 개발자가 직접 환불을 처리할 수 없으며, 환불 요청은 [reportaproblem.apple.com](https://reportaproblem.apple.com) 에서 하실 수 있습니다.
 
 ### 3. 학습 데이터
 
@@ -59,14 +61,16 @@ NINE90 ("the App") is an independently developed iOS application that helps user
 
 ### 2. Free Tier and In-App Purchases
 
-- **Free tier:** The entire first book (10 chapters, 100 words) of your selected level is free. All features — rounds (회독), weak-word review, the 3-second quiz, and the level test — work without restriction within the free tier. No feature is sold separately.
-- **Paid tier:** Chapters from the second book onward require Full Access. Purchasing unlocks all content across all four levels (4,000 words total).
-- The number of free chapters may change with future content updates; the figure shown in the App governs. The scope of an already-purchased Full Access is never reduced.
-- Full Access is a non-consumable product: a single payment permanently unlocks every chapter of every level. It is not a subscription, does not auto-renew, and incurs no further charges.
-- Prices are those shown on the App Store and may vary by country, exchange rate, and promotion.
-- Payment is processed through your Apple ID account. No registration or login is required.
-- Purchases can be restored on other devices signed in with the same Apple ID, or after reinstalling the App, using the "Restore Purchases" feature.
-- Refunds follow the Apple App Store refund policy. You can request a refund at [reportaproblem.apple.com](https://reportaproblem.apple.com).
+- **Free tier:** Book 1 of the level you choose (10 chapters, 100 words) is free in full. Every feature — rounds, weak-word review, the 3-second quiz, the level test — works without limits inside the free tier, and no feature is sold separately.
+- **Paid tier:** Chapters from Book 2 onward require a pass: a **yearly subscription**, a **monthly subscription**, or a **lifetime pass**. Each of them unlocks all content across the four levels (4,000 words). No free trial is offered.
+- The number of free chapters may change with the content lineup; the in-app label is authoritative. A pass you have already bought is never reduced in scope.
+- **Auto-renewable subscriptions (monthly / yearly):** Unless cancelled at least 24 hours before the end of the current period, the subscription renews automatically for the same period at the same price, and the renewal is charged to your Apple Account within 24 hours before the period ends. You can cancel at any time in iOS Settings › Apple Account › Subscriptions and keep access until the paid period ends. Deleting the app does not cancel a subscription.
+- **Lifetime pass:** a one-time, non-consumable purchase. It never renews and carries no further charges.
+- **Price changes:** If a subscription price changes we give advance notice per Apple's policy; an increased price never applies to existing subscribers without their consent.
+- Prices are those shown in the App Store and may vary by country, exchange rate and promotion.
+- Payment is handled through your Apple Account; no sign-up or sign-in is required.
+- Purchases can be restored on another device signed in with the same Apple Account, or after reinstalling, with "Restore Purchases".
+- Refunds — including subscription refunds — follow Apple's App Store refund policy. The developer cannot process refunds directly; requests go through [reportaproblem.apple.com](https://reportaproblem.apple.com).
 
 ### 3. Study Data
 
