@@ -46,7 +46,11 @@ NINE90(이하 "앱")은 토익(TOEIC®) 시험 대비 영어 어휘 학습을 �
 
 본 약관은 필요 시 변경될 수 있으며, 변경 사항은 본 페이지를 통해 공지됩니다.
 
-### 7. 사업자 정보 및 문의
+### 7. 준거법 및 분쟁 해결
+
+이 약관은 대한민국 법을 준거법으로 합니다. 앱 이용과 관련한 분쟁은 먼저 아래 이메일로 알려 주시면 성실히 협의합니다. 협의로 해결되지 않는 분쟁의 소송은 민사소송법이 정한 관할 법원에 제기하되, 관련 법령이 달리 정하지 않는 한 개발자의 사업장 소재지를 관할하는 법원을 제1심 관할 법원으로 합니다. 이 약관의 일부가 무효로 판단되더라도 나머지 조항의 효력에는 영향이 없습니다.
+
+### 8. 사업자 정보 및 문의
 
 - 사업자: ForgeLab (대표 Jason Lee)
 - 문의: [이메일 보내기](mailto:forgelab.aitech@gmail.com?subject=%5BNINE90%5D%20%EC%9D%B4%EC%9A%A9%EC%95%BD%EA%B4%80%20%EB%AC%B8%EC%9D%98)
@@ -94,7 +98,11 @@ NINE90 ("the App") is an independently developed iOS application that helps user
 
 These Terms may be updated when necessary. Changes will be announced on this page.
 
-### 7. Business Information & Contact
+### 7. Governing Law and Disputes
+
+These Terms are governed by the laws of the Republic of Korea. If a dispute arises from your use of the App, please contact us first at the email below and we will discuss it in good faith. Any lawsuit over a dispute that cannot be settled by discussion shall be brought before the court having jurisdiction under the Korean Civil Procedure Act, and unless applicable law provides otherwise, the court with jurisdiction over the Developer's place of business shall be the court of first instance. If any part of these Terms is held invalid, the remaining provisions stay in effect.
+
+### 8. Business Information & Contact
 
 - Operator: ForgeLab (Representative: Jason Lee)
 - Contact: [Send us an email](mailto:forgelab.aitech@gmail.com?subject=%5BNINE90%5D%20Terms%20inquiry)
