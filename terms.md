@@ -1,7 +1,7 @@
 # NINE90 이용약관 / Terms of Service
 
-**시행일:** 2026년 9월 8일 (최초 시행 2026년 7월 9일)
-**Effective Date:** September 8, 2026 (first effective July 9, 2026)
+**시행일:** 2026년 9월 10일 (최초 시행 2026년 7월 9일)
+**Effective Date:** September 10, 2026 (first effective July 9, 2026)
 
 ---
 
