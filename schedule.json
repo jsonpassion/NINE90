@@ -18,7 +18,280 @@
       ],
       "default": true,
       "officialURL": "https://exam.toeic.co.kr",
-      "sessions": []
+      "sessions": [
+        {
+          "id": "2026-579",
+          "title": {
+            "ko": "제579회",
+            "en": "No. 579",
+            "ja": "第579回",
+            "zh": "第579次"
+          },
+          "examDate": "2026-09-20",
+          "registration": [
+            {
+              "label": {
+                "ko": "정기 접수",
+                "en": "Regular registration",
+                "ja": "通常受付",
+                "zh": "常规报名"
+              },
+              "start": "2026-08-03",
+              "end": "2026-09-07"
+            },
+            {
+              "label": {
+                "ko": "특별추가 접수",
+                "en": "Late registration",
+                "ja": "追加受付",
+                "zh": "追加报名"
+              },
+              "start": "2026-09-09",
+              "end": "2026-09-17"
+            }
+          ],
+          "resultDate": "2026-09-29",
+          "url": "https://exam.toeic.co.kr/receipt/examSchList.php"
+        },
+        {
+          "id": "2026-580",
+          "title": {
+            "ko": "제580회",
+            "en": "No. 580",
+            "ja": "第580回",
+            "zh": "第580次"
+          },
+          "examDate": "2026-10-11",
+          "registration": [
+            {
+              "label": {
+                "ko": "정기 접수",
+                "en": "Regular registration",
+                "ja": "通常受付",
+                "zh": "常规报名"
+              },
+              "start": "2026-08-24",
+              "end": "2026-09-28"
+            },
+            {
+              "label": {
+                "ko": "특별추가 접수",
+                "en": "Late registration",
+                "ja": "追加受付",
+                "zh": "追加报名"
+              },
+              "start": "2026-09-30",
+              "end": "2026-10-07"
+            }
+          ],
+          "resultDate": "2026-10-20",
+          "url": "https://exam.toeic.co.kr/receipt/examSchList.php"
+        },
+        {
+          "id": "2026-581",
+          "title": {
+            "ko": "제581회",
+            "en": "No. 581",
+            "ja": "第581回",
+            "zh": "第581次"
+          },
+          "examDate": "2026-10-31",
+          "registration": [
+            {
+              "label": {
+                "ko": "정기 접수",
+                "en": "Regular registration",
+                "ja": "通常受付",
+                "zh": "常规报名"
+              },
+              "start": "2026-09-14",
+              "end": "2026-10-19"
+            },
+            {
+              "label": {
+                "ko": "특별추가 접수",
+                "en": "Late registration",
+                "ja": "追加受付",
+                "zh": "追加报名"
+              },
+              "start": "2026-10-21",
+              "end": "2026-10-28"
+            }
+          ],
+          "resultDate": "2026-11-10",
+          "url": "https://exam.toeic.co.kr/receipt/examSchList.php"
+        },
+        {
+          "id": "2026-582",
+          "title": {
+            "ko": "제582회",
+            "en": "No. 582",
+            "ja": "第582回",
+            "zh": "第582次"
+          },
+          "examDate": "2026-11-08",
+          "registration": [
+            {
+              "label": {
+                "ko": "정기 접수",
+                "en": "Regular registration",
+                "ja": "通常受付",
+                "zh": "常规报名"
+              },
+              "start": "2026-09-21",
+              "end": "2026-10-26"
+            },
+            {
+              "label": {
+                "ko": "특별추가 접수",
+                "en": "Late registration",
+                "ja": "追加受付",
+                "zh": "追加报名"
+              },
+              "start": "2026-10-28",
+              "end": "2026-11-05"
+            }
+          ],
+          "resultDate": "2026-11-17",
+          "url": "https://exam.toeic.co.kr/receipt/examSchList.php"
+        },
+        {
+          "id": "2026-583",
+          "title": {
+            "ko": "제583회",
+            "en": "No. 583",
+            "ja": "第583回",
+            "zh": "第583次"
+          },
+          "examDate": "2026-11-15",
+          "registration": [
+            {
+              "label": {
+                "ko": "정기 접수",
+                "en": "Regular registration",
+                "ja": "通常受付",
+                "zh": "常规报名"
+              },
+              "start": "2026-09-28",
+              "end": "2026-11-02"
+            },
+            {
+              "label": {
+                "ko": "특별추가 접수",
+                "en": "Late registration",
+                "ja": "追加受付",
+                "zh": "追加报名"
+              },
+              "start": "2026-11-04",
+              "end": "2026-11-12"
+            }
+          ],
+          "resultDate": "2026-11-24",
+          "url": "https://exam.toeic.co.kr/receipt/examSchList.php"
+        },
+        {
+          "id": "2026-584",
+          "title": {
+            "ko": "제584회",
+            "en": "No. 584",
+            "ja": "第584回",
+            "zh": "第584次"
+          },
+          "examDate": "2026-11-29",
+          "registration": [
+            {
+              "label": {
+                "ko": "정기 접수",
+                "en": "Regular registration",
+                "ja": "通常受付",
+                "zh": "常规报名"
+              },
+              "start": "2026-10-12",
+              "end": "2026-11-16"
+            },
+            {
+              "label": {
+                "ko": "특별추가 접수",
+                "en": "Late registration",
+                "ja": "追加受付",
+                "zh": "追加报名"
+              },
+              "start": "2026-11-18",
+              "end": "2026-11-26"
+            }
+          ],
+          "resultDate": "2026-12-08",
+          "url": "https://exam.toeic.co.kr/receipt/examSchList.php"
+        },
+        {
+          "id": "2026-585",
+          "title": {
+            "ko": "제585회",
+            "en": "No. 585",
+            "ja": "第585回",
+            "zh": "第585次"
+          },
+          "examDate": "2026-12-13",
+          "registration": [
+            {
+              "label": {
+                "ko": "정기 접수",
+                "en": "Regular registration",
+                "ja": "通常受付",
+                "zh": "常规报名"
+              },
+              "start": "2026-10-26",
+              "end": "2026-11-30"
+            },
+            {
+              "label": {
+                "ko": "특별추가 접수",
+                "en": "Late registration",
+                "ja": "追加受付",
+                "zh": "追加报名"
+              },
+              "start": "2026-12-02",
+              "end": "2026-12-10"
+            }
+          ],
+          "resultDate": "2026-12-22",
+          "url": "https://exam.toeic.co.kr/receipt/examSchList.php"
+        },
+        {
+          "id": "2026-586",
+          "title": {
+            "ko": "제586회",
+            "en": "No. 586",
+            "ja": "第586回",
+            "zh": "第586次"
+          },
+          "examDate": "2026-12-27",
+          "registration": [
+            {
+              "label": {
+                "ko": "정기 접수",
+                "en": "Regular registration",
+                "ja": "通常受付",
+                "zh": "常规报名"
+              },
+              "start": "2026-11-09",
+              "end": "2026-12-14"
+            },
+            {
+              "label": {
+                "ko": "특별추가 접수",
+                "en": "Late registration",
+                "ja": "追加受付",
+                "zh": "追加报名"
+              },
+              "start": "2026-12-16",
+              "end": "2026-12-23"
+            }
+          ],
+          "resultDate": "2027-01-06",
+          "url": "https://exam.toeic.co.kr/receipt/examSchList.php"
+        }
+      ]
     }
   ]
 }
